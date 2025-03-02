@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+// import nodemailer from 'nodemailer';
 
 type MessagePayload = {
   name: string;
@@ -8,16 +8,16 @@ type MessagePayload = {
   message: string;
 };
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   host: 'smtp.gmail.com',
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: process.env.EMAIL_ADDRESS,
+//     pass: process.env.GMAIL_PASSKEY,
+//   },
+// });
 
 async function sendTelegramMessage(token: string, chat_id: string, message: string): Promise<boolean> {
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
@@ -33,45 +33,45 @@ async function sendTelegramMessage(token: string, chat_id: string, message: stri
   }
 }
 
-const generateEmailTemplate = (name: string, email: string, userMessage: string): string => `
-  <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; background-color: #f4f4f4;">
-    <div style="max-width: 600px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-      <h2 style="color: #007BFF;">New Message Received</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Message:</strong></p>
-      <blockquote style="border-left: 4px solid #007BFF; padding-left: 10px; margin-left: 0;">
-        ${userMessage}
-      </blockquote>
-      <p style="font-size: 12px; color: #888;">Click reply to respond to the sender.</p>
-    </div>
-  </div>
-`;
+// const generateEmailTemplate = (name: string, email: string, userMessage: string): string => `
+//   <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; background-color: #f4f4f4;">
+//     <div style="max-width: 600px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+//       <h2 style="color: #007BFF;">New Message Received</h2>
+//       <p><strong>Name:</strong> ${name}</p>
+//       <p><strong>Email:</strong> ${email}</p>
+//       <p><strong>Message:</strong></p>
+//       <blockquote style="border-left: 4px solid #007BFF; padding-left: 10px; margin-left: 0;">
+//         ${userMessage}
+//       </blockquote>
+//       <p style="font-size: 12px; color: #888;">Click reply to respond to the sender.</p>
+//     </div>
+//   </div>
+// `;
 
-async function sendEmail(payload: MessagePayload, message: string): Promise<boolean> {
-  const { name, email, message: userMessage } = payload;
-  
-  const mailOptions = {
-    from: 'Portfolio',
-    to: process.env.EMAIL_ADDRESS,
-    subject: `New Message From ${name}`,
-    text: message,
-    html: generateEmailTemplate(name, email, userMessage),
-    replyTo: email,
-  };
-  
-  try {
-    await transporter.sendMail(mailOptions);
-    return true;
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error while sending email:", error.message);
-    } else {
-      console.error("Unknown error while sending email:", error);
-    }
-    return false;
-  }
-}
+// async function sendEmail(payload: MessagePayload, message: string): Promise<boolean> {
+//   const { name, email, message: userMessage } = payload;
+
+//   const mailOptions = {
+//     from: 'Portfolio',
+//     to: process.env.EMAIL_ADDRESS,
+//     subject: `New Message From ${name}`,
+//     text: message,
+//     html: generateEmailTemplate(name, email, userMessage),
+//     replyTo: email,
+//   };
+
+//   try {
+//     await transporter.sendMail(mailOptions);
+//     return true;
+//   } catch (error) {
+//     if (error instanceof Error) {
+//       console.error("Error while sending email:", error.message);
+//     } else {
+//       console.error("Unknown error while sending email:", error);
+//     }
+//     return false;
+//   }
+// }
 
 export async function POST(request: Request): Promise<NextResponse> {
   try {
