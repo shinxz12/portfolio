@@ -1,19 +1,8 @@
-// @flow strict
-
+import { IProject } from '@/models/Project';
 import * as React from 'react';
 
-type Project = {
-  id: number;
-  name: string;
-  description: string;
-  tools: string[];
-  role: string;
-  code: string;
-  demo: string;
-  responsibilities?: string[];
-}
 
-function ProjectCard({ project } : { project: Project}) {
+function ProjectCard({ project } : { project: IProject}) {
 
   return (
     <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
@@ -70,14 +59,7 @@ function ProjectCard({ project } : { project: Project}) {
           <div className="ml-4 lg:ml-8 mr-2">
             <span className="text-white">Description:</span>
             <span className="text-cyan-400">{' ' + project.description}</span>
-            <span className="text-gray-400">,</span>
           </div>
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className="text-white">Responsibilities:</span>
-            <span className="text-cyan-400">{' ' + project.responsibilities}</span>
-            <span className="text-gray-400">,</span>
-          </div>
-          <div><span className="text-gray-400">{`};`}</span></div>
         </code>
       </div>
     </div>
