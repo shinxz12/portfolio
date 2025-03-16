@@ -1,17 +1,6 @@
-import { personalData } from "@/utils/data/personal-data";
 import BlogCard from "../components/homepage/blog/blog-card";
-import { Blog } from "../components/homepage/blog/types";
+import { getBlogs } from "@/services";
 
-async function getBlogs() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  const data: Blog[] = await res.json();
-  return data;
-};
 
 async function page() {
   const blogs = await getBlogs();
