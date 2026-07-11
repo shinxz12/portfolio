@@ -24,7 +24,7 @@ Full rebuild of the portfolio site (`src/` torn down and rewritten) into a minim
 ```
 /                  one-page: Hero → What I do → Selected Work → More projects → Tech stack → Contact
 /work/[slug]       4 case studies: arobid, gkim-healthcare, finexis-ekyc, luxe-nomad
-/api/contact       POST, sends email via nodemailer
+/api/contact       POST, delivers message via Telegram bot (existing working path)
 sitemap.ts, robots.ts
 ```
 
@@ -60,8 +60,8 @@ Rules:
 
 ## Dependency changes
 
-**Remove:** mongoose, axios, lottie-react, react-fast-marquee, react-toastify, sass, `src/models`, `src/services`, `src/lib/mongodb.ts`, `src/utils` (old data files).
-**Keep:** next, react, react-dom, nodemailer, `@next/third-parties` (Google Analytics, if configured).
+**Remove:** mongoose, axios, lottie-react, react-fast-marquee, react-toastify, sass, nodemailer (contact ships via Telegram, and the old email path was already disabled), `src/models`, `src/services`, `src/lib/mongodb.ts`, `src/utils` (old data files).
+**Keep:** next, react, react-dom, `@next/third-parties` (GoogleTagManager via `NEXT_PUBLIC_GTM`).
 **Swap:** react-icons → lucide-react (lighter, fits minimal style).
 
 ## UI system
@@ -74,10 +74,10 @@ Rules:
 
 ## Contact form
 
-- API route (`/api/contact`) + nodemailer, SMTP creds from env as today.
+- API route (`/api/contact`) delivering to Telegram via `fetch` (env: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` — already in use today).
 - Server-side validation: required fields, email format, honeypot field for spam bots.
 - Inline success/error states in the form — no toast library.
-- Graceful failure: on SMTP error, show "email me directly at <address>".
+- Graceful failure: on delivery error, show "email me directly at <address>".
 
 ## SEO & meta
 
