@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Bui The Ngoc — Software Engineer</title>
+  <style>
+    /* ====== Print setup: A4, generate PDF with headless Chrome ======
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+       --headless --no-pdf-header-footer --print-to-pdf=public/cv.pdf cv/cv.html
+  ================================================================= */
+    @page {
+      size: A4;
+      margin: 11mm 14mm 13mm;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1b1d24;
+      /* near-black, tinted toward blue */
+      --muted: #5a5f6d;
+      --faint: #8a8fa0;
+      --accent: #234a9e;
+      /* deep print-safe blue */
+      --hairline: #d8dbe4;
+    }
+
+    body {
+      font-family: Charter, Georgia, "Times New Roman", serif;
+      font-size: 9.4pt;
+      line-height: 1.42;
+      color: var(--ink);
+    }
+
+    .sans {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 9pt;
+      border-bottom: 1.5pt solid var(--ink);
+      margin-bottom: 4pt;
+    }
+
+    h1 {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 22pt;
+      font-weight: 600;
+      letter-spacing: 1.5pt;
+    }
+
+    .role {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 500;
+      letter-spacing: 2.5pt;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 3pt;
+    }
+
+    .contact {
+      text-align: right;
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 8pt;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .contact b {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------- Sections ---------- */
+    h2 {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 8.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2.2pt;
+      color: var(--accent);
+      margin: 13pt 0 6pt;
+      display: flex;
+      align-items: center;
+      gap: 8pt;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      border-top: 0.5pt solid var(--hairline);
+    }
+
+    /* ---------- Entries ---------- */
+    h3 {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 9.8pt;
+      font-weight: 600;
+      margin-top: 7pt;
+    }
+
+    h3 .meta {
+      font-weight: 400;
+      font-size: 8.5pt;
+      color: var(--muted);
+      letter-spacing: 0.2pt;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .dates {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      color: var(--faint);
+      font-size: 8pt;
+      font-weight: 500;
+      letter-spacing: 0.5pt;
+      white-space: nowrap;
+    }
+
+    .tech {
+      font-size: 8.3pt;
+      font-style: italic;
+      color: var(--muted);
+      margin: 1pt 0 3pt;
+    }
+
+    ul {
+      list-style: none;
+      margin: 2pt 0 4pt;
+    }
+
+    li {
+      margin-bottom: 1.5pt;
+      padding-left: 11pt;
+      position: relative;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 1pt;
+      top: 5.2pt;
+      width: 4pt;
+      height: 0.9pt;
+      background: var(--accent);
+    }
+
+    /* ---------- Skills ---------- */
+    .skills {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .skills td {
+      padding: 1.5pt 0;
+      vertical-align: baseline;
+    }
+
+    .skills td:first-child {
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1pt;
+      color: var(--muted);
+      width: 140pt;
+      padding-right: 10pt;
+    }
+
+    /* ---------- Experience ---------- */
+    .xp {
+      margin-bottom: 2pt;
+    }
+
+    .xp h3 {
+      margin-top: 3pt;
+    }
+
+    .xp .org {
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .avoid-break {
+      break-inside: avoid;
+    }
+
+    .summary {
+      max-width: 66ch;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div>
+      <h1>BÙI THẾ NGỌC</h1>
+      <div class="role">Software Engineer</div>
+    </div>
+    <div class="contact">
+      <b><a href="mailto:ngocbthe@gmail.com">ngocbthe@gmail.com</a></b><br />
+      0969 530 042 · District 10, Ho Chi Minh City<br />
+      <a href="https://www.linkedin.com/in/ngocbthe/">linkedin.com/in/ngocbthe</a> ·
+      <a href="https://github.com/shinxz12">github.com/shinxz12</a> ·
+      <a href="https://btngoc.io.vn">btngoc.io.vn</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">
+      Software Engineer with 5+ years of experience designing, building, and optimizing
+      production-grade systems for e-commerce, healthcare, and booking products. Experienced across
+      the full stack with deep expertise in Python (Django) and TypeScript (NestJS), owning features
+      end-to-end from API design and data modeling to performance optimization and background
+      processing, with a solid grounding in system design, event-driven architecture, and
+      infrastructure fundamentals.
+    </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <table class="skills">
+      <tr>
+        <td>Languages &amp; frameworks</td>
+        <td>Python (Django, FastAPI), TypeScript / Node.js (NestJS), REST / gRPC / GraphQL</td>
+      </tr>
+      <tr>
+        <td>Data</td>
+        <td>PostgreSQL, MySQL, MongoDB, Redis, query &amp; schema optimization</td>
+      </tr>
+      <tr>
+        <td>Messaging &amp; workflows</td>
+        <td>Kafka, Debezium CDC, NATS JetStream, Celery, Temporal</td>
+      </tr>
+      <tr>
+        <td>Infrastructure</td>
+        <td>AWS, Google Cloud, Docker, CI/CD, Nginx, Turborepo monorepo</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+    <div class="xp row">
+      <h3>Backend Engineer <span class="org">· Arobid Tech JSC</span></h3><span class="dates">02/2026 – PRESENT</span>
+    </div>
+    <div class="xp row">
+      <h3>Backend Engineer <span class="org">· Gkim Digital Ltd</span></h3><span class="dates">09/2024 – 02/2026</span>
+    </div>
+    <div class="xp row">
+      <h3>Software Engineer <span class="org">· Golden Owl Consulting</span></h3><span class="dates">03/2022 –
+        09/2024</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="avoid-break">
+      <h3>Arobid B2B Marketplace Platform <span class="meta">· Backend Developer · Arobid Tech JSC</span></h3>
+      <p class="tech">NestJS, TypeScript, PostgreSQL, TypeORM, gRPC, Kafka, Debezium CDC, Temporal, Redis, VNPay</p>
+      <ul>
+        <li>Helped build the shared microservice foundation: service setup, configuration, database access, gRPC
+          communication, error handling, and observability used across all platform services.</li>
+        <li>Designed platform-wide authentication, RBAC, audit logging, and transactional outbox patterns; implemented
+          CDC pipelines with Debezium and Kafka Connect for reliable event delivery.</li>
+        <li>Delivered end-to-end product listing with review/approval workflows, optimistic locking, and version history
+          to protect concurrent edits.</li>
+        <li>Contributed to Temporal-based order orchestration and built VNPay payment workflows covering initiation,
+          callbacks, and transaction tracking.</li>
+        <li>Built a provider-agnostic translation service (internal AI, Google Translate, LLMs) with per-language
+          fallback chains, glossary protection, caching, and batch processing.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>DNA Insights Platform <span class="meta">· Backend Developer</span></h3>
+      <p class="tech">NestJS, TypeScript, PostgreSQL, MongoDB, gRPC, NATS JetStream, Turborepo</p>
+      <ul>
+        <li>Designed and built an event-driven, microservice-based backend platform from scratch in a Turborepo monorepo
+          with clear service boundaries and ownership.</li>
+        <li>Owned backend architecture decisions for internal service communication and asynchronous processing,
+          integrating with external AI/ML pipelines.</li>
+        <li>Designed reliable workflows for long-running DNA processing tasks: state tracking, retries, failure
+          recovery, and auditability across PostgreSQL and MongoDB.</li>
+        <li>Built internal admin tools giving operations teams visibility into system state and processing progress.
+        </li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>Telehealth Core Platform <span class="meta">· Backend Developer</span></h3>
+      <p class="tech">Django, Python, PostgreSQL, AWS, Celery, NMI, Stripe, React</p>
+      <ul>
+        <li>Maintained and evolved a production telehealth platform supporting patient, provider, and laboratory
+          workflows.</li>
+        <li>Optimized PostgreSQL queries, schema design, and connection handling, improving API performance and system
+          stability.</li>
+        <li>Designed and maintained Celery workflows for asynchronous processing and scheduled jobs; integrated NMI and
+          Stripe payment flows for telehealth billing.</li>
+        <li>Collaborated with frontend and product teams to design stable, well-defined APIs and consistent data flow.
+        </li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>E4G Multi-Tenant Healthcare Platform <span class="meta">· Backend Developer</span></h3>
+      <p class="tech">NestJS, TypeScript, Django, PostgreSQL, REST APIs, Webhooks, RBAC</p>
+      <ul>
+        <li>Built multi-tenant foundations: tenant provisioning, data and configuration isolation, RBAC, and separate
+          global/tenant administration.</li>
+        <li>Enabled healthcare partners to launch branded patient portals with configurable offerings and appointment
+          booking, synchronized via webhook-driven workflow templates.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>Finexis eKYC <span class="meta">· Software Engineer</span></h3>
+      <p class="tech">Django, Python, MySQL, Celery, AWS</p>
+      <ul>
+        <li>Built new eKYC verification types and RESTful APIs for mobile integration, with Celery background processing
+          and third-party insurance API integrations.</li>
+        <li>Optimized SQL queries and database structure, cutting representative page load times from 23s to 2s and from
+          26s to 5s.</li>
+        <li>Refactored legacy code to improve maintainability and data-access efficiency.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>The Luxe Nomad <span class="meta">· Software Engineer</span></h3>
+      <p class="tech">Django, Python, PostgreSQL, Celery, GCP, ReactJS, Bootstrap</p>
+      <ul>
+        <li>Designed Django REST APIs and third-party integrations for booking, sales, marketing, and automated
+          reporting (Google Sheets API) in a luxury vacation rental platform.</li>
+        <li>Migrated Celery tasks and cron jobs to Google Cloud Tasks and managed scheduling; upgraded Django 2 to 4.
+        </li>
+        <li>Managed deployment, performance, security, and cloud cost; consulted directly with the client on business
+          requirements.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>Watchtowr <span class="meta">· Fullstack Developer</span></h3>
+      <p class="tech">NextJS, NestJS, ChakraUI, Apollo, GraphQL, Kafka</p>
+      <ul>
+        <li>Developed GraphQL APIs and frontend features for onboarding and managing external security assets on an
+          exposure-management platform.</li>
+        <li>Implemented automated PDF report generation and maintained production services, improving overall
+          reliability.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>Hoplite Technology <span class="meta">· Software Engineer</span></h3>
+      <p class="tech">TypeScript, ReactJS, NextJS, Python, AWS Lambda, FastAPI, MongoDB, Nginx</p>
+      <ul>
+        <li>Built AI-powered chat tools with NextJS and the OpenAI API; designed serverless REST APIs with AWS Lambda
+          and API Gateway.</li>
+        <li>Implemented streaming responses to work around API Gateway timeouts; optimized page load and API
+          responsiveness; set up Nginx reverse proxy.</li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>TurisVPN <span class="meta">· Backend Developer</span></h3>
+      <p class="tech">Django, Python, Celery, CKEditor</p>
+      <ul>
+        <li>Built a scheduled email campaign feature for marketing using CKEditor 5 and Celery.</li>
+        <li>Set up performance debugging tooling and fixed N+1 query issues, speeding up data-heavy Django Admin pages.
+        </li>
+      </ul>
+    </div>
+
+    <div class="avoid-break">
+      <h3>Clinger <span class="meta">· Backend Developer</span></h3>
+      <p class="tech">NestJS, TypeScript, PostgreSQL</p>
+      <ul>
+        <li>Developed core backend features (profiles, matching, messaging) for a mobile dating app; integrated
+          automated nudity detection for content safety.</li>
+        <li>Redesigned database schemas and optimized queries to improve data integrity and responsiveness; refactored
+          legacy modules for maintainability.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="avoid-break">
+    <h2>Education</h2>
+    <div class="row">
+      <h3>Ho Chi Minh City University of Technology <span class="meta">· Electrical Engineering (Telecommunication),
+          P.F.I.E.V</span></h3>
+      <span class="dates">2017 – 2022</span>
+    </div>
+  </section>
+
+</body>
+
+</html>
