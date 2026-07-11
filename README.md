@@ -1,23 +1,35 @@
-This is my custom portfolio that is forked from [Abu Said](https://github.com/said7388/developer-portfolio). See the [preview](https://btngoc.io.vn/).
+# btngoc.io.vn — portfolio
 
-## Getting Started
+Personal portfolio of Ngoc Bui, Software Engineer. Minimal one-page site with
+per-project case studies, fully static content, and a Telegram-backed contact form.
 
-First, run the development server:
+## Stack
+
+Next.js 15 (App Router) · React 19 · TypeScript · Tailwind 4 · lucide-react
+
+## Structure
+
+- `/` — one-page home: hero, services, selected work, more projects, tech stack, contact
+- `/work/[slug]` — case study pages, statically generated
+- `/api/contact` — contact form endpoint, delivers to Telegram
+- `src/data/` — ALL site content, typed TypeScript (no CMS, no database)
+
+## Editing content
+
+- Case studies: `src/data/case-studies.ts` — add an object, the page and sitemap
+  entry are generated automatically.
+- Services, supporting projects, skills, personal info: sibling files in `src/data/`.
+- CV: replace `public/cv.pdf`.
+
+## Environment variables
+
+- `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` — contact form delivery
+- `NEXT_PUBLIC_GTM` — Google Tag Manager id
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build (static)
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
