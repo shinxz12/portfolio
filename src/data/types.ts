@@ -16,7 +16,6 @@ export type CaseStudy = {
   contributions: string[];
   outcomes: string[];
   stack: string[];
-  productUrl?: string;
 };
 
 export type SkillGroup = {

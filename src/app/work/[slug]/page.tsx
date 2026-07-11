@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -43,16 +43,6 @@ export default async function CaseStudyPage({ params }: Props) {
           {caseStudy.title}
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{caseStudy.summary}</p>
-        {caseStudy.productUrl && (
-          <a
-            href={caseStudy.productUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-sm text-accent hover:underline"
-          >
-            Visit product <ArrowUpRight className="size-4" />
-          </a>
-        )}
       </header>
 
       <div className="mt-12 space-y-12">
