@@ -11,7 +11,7 @@
   ================================================================= */
     @page {
       size: A4;
-      margin: 11mm 14mm 13mm;
+      margin: 10mm 13mm 11mm;
     }
 
     * {
@@ -21,24 +21,25 @@
     }
 
     :root {
-      --ink: #1b1d24;
-      /* near-black, tinted toward blue */
-      --muted: #5a5f6d;
-      --faint: #8a8fa0;
-      --accent: #234a9e;
-      /* deep print-safe blue */
-      --hairline: #d8dbe4;
+      --ink: #171923;
+      --muted: #4b5563;
+      --faint: #7a8293;
+      --accent: #1f4f8f;
+      --hairline: #d9dee8;
+      --surface: #f6f8fb;
     }
 
     body {
-      font-family: Charter, Georgia, "Times New Roman", serif;
-      font-size: 9.4pt;
-      line-height: 1.42;
+      font-family: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 9.05pt;
+      line-height: 1.39;
       color: var(--ink);
+      font-kerning: normal;
+      text-rendering: optimizeLegibility;
     }
 
     .sans {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
     }
 
     /* ---------- Header ---------- */
@@ -46,33 +47,34 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      padding-bottom: 9pt;
-      border-bottom: 1.5pt solid var(--ink);
+      padding-bottom: 10pt;
+      border-bottom: 1.25pt solid var(--ink);
       margin-bottom: 4pt;
     }
 
     h1 {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-      font-size: 22pt;
-      font-weight: 600;
-      letter-spacing: 1.5pt;
+      font-family: "Arial", "Helvetica Neue", "Inter", sans-serif;
+      font-size: 22.5pt;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.18;
     }
 
     .role {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-      font-size: 10pt;
-      font-weight: 500;
-      letter-spacing: 2.5pt;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 9.2pt;
+      font-weight: 650;
+      letter-spacing: 1.8pt;
       text-transform: uppercase;
       color: var(--accent);
-      margin-top: 3pt;
+      margin-top: 4pt;
     }
 
     .contact {
       text-align: right;
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-      font-size: 8pt;
-      line-height: 1.7;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 7.8pt;
+      line-height: 1.62;
       color: var(--muted);
     }
 
@@ -88,16 +90,16 @@
 
     /* ---------- Sections ---------- */
     h2 {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-      font-size: 8.5pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2.2pt;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0;
       color: var(--accent);
-      margin: 13pt 0 6pt;
+      margin: 11pt 0 5pt;
       display: flex;
       align-items: center;
-      gap: 8pt;
+      gap: 7pt;
     }
 
     h2::after {
@@ -108,17 +110,18 @@
 
     /* ---------- Entries ---------- */
     h3 {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-      font-size: 9.8pt;
-      font-weight: 600;
-      margin-top: 7pt;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 9.45pt;
+      font-weight: 700;
+      margin-top: 6pt;
+      line-height: 1.25;
     }
 
     h3 .meta {
-      font-weight: 400;
-      font-size: 8.5pt;
-      color: var(--muted);
-      letter-spacing: 0.2pt;
+      font-weight: 600;
+      font-size: 8.35pt;
+      color: var(--accent);
+      letter-spacing: 0;
     }
 
     .row {
@@ -128,39 +131,48 @@
     }
 
     .dates {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
       color: var(--faint);
-      font-size: 8pt;
+      font-size: 7.8pt;
       font-weight: 500;
-      letter-spacing: 0.5pt;
+      letter-spacing: 0;
       white-space: nowrap;
+      font-variant-numeric: tabular-nums;
     }
 
     .tech {
-      font-size: 8.3pt;
-      font-style: italic;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 7.75pt;
+      font-style: normal;
       color: var(--muted);
-      margin: 1pt 0 3pt;
+      margin: 1pt 0 2.75pt;
+    }
+
+    .tech::before {
+      content: "Stack: ";
+      font-weight: 700;
+      color: var(--faint);
     }
 
     ul {
       list-style: none;
-      margin: 2pt 0 4pt;
+      margin: 2pt 0 3.5pt;
     }
 
     li {
-      margin-bottom: 1.5pt;
-      padding-left: 11pt;
+      margin-bottom: 1.35pt;
+      padding-left: 10.5pt;
       position: relative;
     }
 
     li::before {
       content: "";
       position: absolute;
-      left: 1pt;
-      top: 5.2pt;
-      width: 4pt;
-      height: 0.9pt;
+      left: 1.5pt;
+      top: 4.85pt;
+      width: 3.1pt;
+      height: 3.1pt;
+      border-radius: 50%;
       background: var(--accent);
     }
 
@@ -171,24 +183,34 @@
     }
 
     .skills td {
-      padding: 1.5pt 0;
+      padding: 1.75pt 0;
       vertical-align: baseline;
     }
 
     .skills td:first-child {
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-      font-size: 8pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1pt;
+      font-family: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 8.1pt;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0;
       color: var(--muted);
       width: 140pt;
       padding-right: 10pt;
     }
 
+    .skills tr + tr td {
+      border-top: 0.4pt solid var(--hairline);
+    }
+
     /* ---------- Experience ---------- */
+    .xp-list {
+      border-left: 1pt solid var(--hairline);
+      margin-top: 1pt;
+      padding-left: 10pt;
+    }
+
     .xp {
-      margin-bottom: 2pt;
+      margin-bottom: 2.75pt;
     }
 
     .xp h3 {
@@ -196,8 +218,13 @@
     }
 
     .xp .org {
-      font-weight: 400;
-      color: var(--muted);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .xp .role-name {
+      font-weight: 600;
+      color: var(--accent);
     }
 
     .avoid-break {
@@ -205,7 +232,7 @@
     }
 
     .summary {
-      max-width: 66ch;
+      max-width: none;
     }
   </style>
 </head>
@@ -214,7 +241,7 @@
 
   <header>
     <div>
-      <h1>BÙI THẾ NGỌC</h1>
+      <h1>Bùi Thế Ngọc</h1>
       <div class="role">Software Engineer</div>
     </div>
     <div class="contact">
@@ -242,7 +269,7 @@
     <h2>Skills</h2>
     <table class="skills">
       <tr>
-        <td>Languages &amp; frameworks</td>
+        <td>Languages &amp; Frameworks</td>
         <td>Python (Django, FastAPI), TypeScript / Node.js (NestJS), REST / gRPC / GraphQL</td>
       </tr>
       <tr>
@@ -250,7 +277,7 @@
         <td>PostgreSQL, MySQL, MongoDB, Redis, query &amp; schema optimization</td>
       </tr>
       <tr>
-        <td>Messaging &amp; workflows</td>
+        <td>Messaging &amp; Workflows</td>
         <td>Kafka, Debezium CDC, NATS JetStream, Celery, Temporal</td>
       </tr>
       <tr>
@@ -262,15 +289,19 @@
 
   <section>
     <h2>Work Experience</h2>
-    <div class="xp row">
-      <h3>Backend Engineer <span class="org">· Arobid Tech JSC</span></h3><span class="dates">02/2026 – PRESENT</span>
-    </div>
-    <div class="xp row">
-      <h3>Backend Engineer <span class="org">· Gkim Digital Ltd</span></h3><span class="dates">09/2024 – 02/2026</span>
-    </div>
-    <div class="xp row">
-      <h3>Software Engineer <span class="org">· Golden Owl Consulting</span></h3><span class="dates">03/2022 –
-        09/2024</span>
+    <div class="xp-list">
+      <div class="xp row">
+        <h3><span class="org">Arobid Tech JSC</span> <span class="role-name">· Backend Engineer</span></h3><span
+          class="dates">02/2026 – Present</span>
+      </div>
+      <div class="xp row">
+        <h3><span class="org">Gkim Digital Ltd</span> <span class="role-name">· Backend Engineer</span></h3><span
+          class="dates">09/2024 – 02/2026</span>
+      </div>
+      <div class="xp row">
+        <h3><span class="org">Golden Owl Consulting</span> <span class="role-name">· Software Engineer</span></h3><span
+          class="dates">03/2022 – 09/2024</span>
+      </div>
     </div>
   </section>
 
@@ -278,7 +309,7 @@
     <h2>Projects</h2>
 
     <div class="avoid-break">
-      <h3>Arobid B2B Marketplace Platform <span class="meta">· Backend Developer · Arobid Tech JSC</span></h3>
+      <h3>Arobid B2B Marketplace Platform <span class="meta">· Backend Developer</span></h3>
       <p class="tech">NestJS, TypeScript, PostgreSQL, TypeORM, gRPC, Kafka, Debezium CDC, Temporal, Redis, VNPay</p>
       <ul>
         <li>Helped build the shared microservice foundation: service setup, configuration, database access, gRPC

@@ -22,7 +22,7 @@ export default function HomePage() {
         <div className="mt-8 flex gap-3">
           <ButtonLink href="/#work">View work</ButtonLink>
           <ButtonLink href={site.cvUrl} variant="secondary" newTab>
-            View CV
+            View Resume
           </ButtonLink>
         </div>
       </section>

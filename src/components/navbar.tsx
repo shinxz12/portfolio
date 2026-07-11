@@ -30,7 +30,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="rounded-md border border-border px-3 py-1.5 transition-colors hover:border-accent hover:text-accent"
           >
-            CV
+            Resume
           </a>
         </div>
       </nav>
