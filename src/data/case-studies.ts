@@ -42,7 +42,6 @@ export const caseStudies: CaseStudy[] = [
       "VNPay",
       "Docker",
     ],
-    productUrl: "https://arobid.com/vi",
   },
   {
     slug: "gkim-healthcare",
@@ -106,7 +105,6 @@ export const caseStudies: CaseStudy[] = [
       "Mobile onboarding gained new verification types without destabilizing the legacy system.",
     ],
     stack: ["Django", "Python", "MySQL", "Celery", "AWS", "REST APIs"],
-    productUrl: "https://www.finexis.com.sg/",
   },
   {
     slug: "luxe-nomad",
@@ -140,7 +138,6 @@ export const caseStudies: CaseStudy[] = [
       "React",
       "Bootstrap",
     ],
-    productUrl: "https://theluxenomad.com/",
   },
   {
     slug: "hoplite",
@@ -201,7 +198,6 @@ export const caseStudies: CaseStudy[] = [
       "Asset management features kept stable in production while the platform evolved.",
     ],
     stack: ["Next.js", "NestJS", "TypeScript", "Chakra UI", "Apollo", "GraphQL", "Kafka"],
-    productUrl: "https://watchtowr.com/",
   },
   {
     slug: "turisvpn",
