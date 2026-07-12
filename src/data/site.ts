@@ -8,7 +8,7 @@ export const site = {
   email: "ngocbthe@gmail.com",
   phone: "+84969530042",
   location: "Ho Chi Minh City, Viet Nam",
-  cvUrl: "/cv.pdf",
+  cvUrl: "/BUI THE NGOC - SOFTWARE ENGINEER.pdf",
   socials: [
     { label: "GitHub", url: "https://github.com/shinxz12" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/ngocbthe/" },
