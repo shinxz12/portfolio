@@ -1,12 +1,13 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://btngoc.io.vn"),
@@ -30,7 +31,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background text-foreground`}>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} bg-background font-sans text-foreground`}
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
