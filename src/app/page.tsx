@@ -16,13 +16,13 @@ export default function HomePage() {
 
       <Section id="services" title="What I do" index="01">
         <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
-          {services.map((service) => (
-            <div key={service.title} className="border-t border-border pt-5">
+          {services.map((service, i) => (
+            <Reveal key={service.title} y={-18} delay={i * 0.1} className="border-t border-border pt-5">
               <h3 className="font-display text-lg font-medium tracking-tight">{service.title}</h3>
               <p className="mt-2.5 max-w-md text-sm leading-relaxed text-muted">
                 {service.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Section>
