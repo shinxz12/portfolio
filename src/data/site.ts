@@ -1,6 +1,9 @@
 export const site = {
   name: "Ngoc Bui",
   title: "Software Engineer",
+  headline: "I build reliable systems, and make slow ones fast.",
+  intro:
+    "Software engineer with 5+ years shipping production systems across e-commerce, healthcare, and travel.",
   tagline:
     "Software engineer with 5+ years shipping production systems across e-commerce, healthcare, and travel. I build reliable APIs and full-stack products, and make slow systems fast.",
   description:

@@ -9,12 +9,15 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-4 z-50 py-2">
-      <nav className="flex h-14 items-center justify-between rounded-2xl border border-border bg-white/70 px-5 shadow-lg shadow-black/[0.04] backdrop-blur-xl">
-        <Link href="/" className="font-display font-bold tracking-tight">
+    <header className="sticky top-0 z-50 -mx-6 border-b border-border bg-background/90 px-6 backdrop-blur-sm sm:-mx-8 sm:px-8">
+      <nav className="flex h-16 items-center justify-between">
+        <Link
+          href="/"
+          className="text-sm font-medium uppercase tracking-[0.15em] text-foreground"
+        >
           {site.name}
         </Link>
-        <div className="flex items-center gap-5 text-sm text-muted">
+        <div className="flex items-center gap-6 text-sm text-muted">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -28,7 +31,7 @@ export default function Navbar() {
             href={site.cvUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="gradient-border rounded-lg bg-card px-3 py-1.5 text-foreground transition-colors hover:text-accent"
+            className="link-underline text-foreground"
           >
             Resume
           </a>

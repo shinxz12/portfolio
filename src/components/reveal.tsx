@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
-const EASE: [number, number, number, number] = [0.21, 0.47, 0.32, 0.98];
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function Reveal({
   children,
@@ -19,10 +19,10 @@ export default function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
+      initial={{ opacity: 0, y: reduceMotion ? 0 : 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: EASE }}
+      transition={{ duration: 0.7, delay, ease: EASE }}
     >
       {children}
     </motion.div>

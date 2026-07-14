@@ -37,10 +37,10 @@ export default async function CaseStudyPage({ params }: Props) {
       </Link>
 
       <header className="mt-8">
-        <p className="gradient-text text-xs font-semibold uppercase tracking-wider">
+        <p className="text-xs font-medium uppercase tracking-[0.15em] text-accent">
           {caseStudy.domain} · {caseStudy.role}
         </p>
-        <h1 className="font-display mt-3 text-3xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="font-display mt-4 max-w-3xl text-3xl font-medium leading-[1.1] tracking-tight sm:text-5xl">
           {caseStudy.title}
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{caseStudy.summary}</p>
@@ -62,7 +62,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <ul className="mt-4 max-w-2xl space-y-3">
               {caseStudy.contributions.map((item) => (
                 <li key={item} className="flex gap-3 leading-relaxed">
-                  <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-gradient-to-r from-accent to-accent-pink" />
+                  <span className="mt-2 size-1.5 shrink-0 bg-accent" />
                   {item}
                 </li>
               ))}
@@ -78,7 +78,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <ul className="mt-4 max-w-2xl space-y-3">
               {caseStudy.outcomes.map((item) => (
                 <li key={item} className="flex gap-3 leading-relaxed">
-                  <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-gradient-to-r from-accent to-accent-pink" />
+                  <span className="mt-2 size-1.5 shrink-0 bg-accent" />
                   {item}
                 </li>
               ))}
@@ -93,7 +93,7 @@ export default async function CaseStudyPage({ params }: Props) {
               {caseStudy.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted transition-colors hover:border-accent hover:text-accent"
+                  className="border border-border px-3 py-1 text-xs text-muted transition-colors hover:border-foreground hover:text-foreground"
                 >
                   {tech}
                 </span>
