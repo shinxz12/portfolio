@@ -1,6 +1,7 @@
-import ButtonLink from "@/components/button-link";
 import CaseStudyCard from "@/components/case-study-card";
 import ContactForm from "@/components/contact-form";
+import Hero from "@/components/hero";
+import Marquee from "@/components/marquee";
 import ProjectRow from "@/components/project-row";
 import Section from "@/components/section";
 import { featuredCaseStudies, supportingCaseStudies } from "@/data/case-studies";
@@ -11,27 +12,16 @@ import { skillGroups } from "@/data/skills";
 export default function HomePage() {
   return (
     <>
-      <section className="py-20 sm:py-28">
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          {site.name}
-          <span className="mt-2 block text-2xl font-normal text-muted sm:text-3xl">
-            {site.title}
-          </span>
-        </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{site.tagline}</p>
-        <div className="mt-8 flex gap-3">
-          <ButtonLink href="/#work">View work</ButtonLink>
-          <ButtonLink href={site.cvUrl} variant="secondary" newTab>
-            View Resume
-          </ButtonLink>
-        </div>
-      </section>
+      <Hero />
 
       <Section id="services" title="What I do">
         <div className="grid gap-4 sm:grid-cols-2">
           {services.map((service) => (
-            <div key={service.title} className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-semibold">{service.title}</h3>
+            <div
+              key={service.title}
+              className="gradient-border rounded-2xl bg-card p-6 shadow-lg shadow-black/[0.04] transition-shadow duration-300 hover:shadow-xl hover:shadow-accent/10"
+            >
+              <h3 className="font-display font-bold">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{service.description}</p>
             </div>
           ))}
@@ -55,7 +45,8 @@ export default function HomePage() {
       </Section>
 
       <Section id="skills" title="Tech stack">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Marquee />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <div key={group.label}>
               <h3 className="text-sm font-medium">{group.label}</h3>

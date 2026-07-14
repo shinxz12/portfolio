@@ -40,7 +40,7 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent";
+    "w-full rounded-xl border border-border bg-card px-4 py-3 text-sm shadow-sm outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/20";
 
   return (
     <form onSubmit={handleSubmit} className="mt-8 max-w-xl space-y-4">
@@ -71,7 +71,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50 dark:text-background"
+        className="rounded-xl bg-gradient-to-r from-accent via-accent-cyan to-accent-pink bg-[length:200%_100%] bg-left px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-500 hover:bg-right disabled:opacity-50"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>

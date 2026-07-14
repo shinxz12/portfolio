@@ -8,7 +8,10 @@ export default function Footer() {
           © {new Date().getFullYear()} {site.name} · {site.location}
         </p>
         <div className="flex gap-4">
-          <a href={`mailto:${site.email}`} className="transition-colors hover:text-foreground">
+          <a
+            href={`mailto:${site.email}`}
+            className="link-underline transition-colors hover:text-foreground"
+          >
             Email
           </a>
           {site.socials.map((s) => (
@@ -17,7 +20,7 @@ export default function Footer() {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-foreground"
+              className="link-underline transition-colors hover:text-foreground"
             >
               {s.label}
             </a>
