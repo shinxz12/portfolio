@@ -4,6 +4,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import ScrollProgress from "@/components/scroll-progress";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             }),
           }}
         />
+        <ScrollProgress />
         <main className="mx-auto min-h-screen max-w-5xl px-6 sm:px-8">
           <Navbar />
           {children}

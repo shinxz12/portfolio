@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm paper + ink, one signal-red accent. OKLCH, neutrals tinted warm. */
-  --background: oklch(0.985 0.006 85);
-  --foreground: oklch(0.23 0.012 60);
-  --muted: oklch(0.53 0.015 60);
-  --border: oklch(0.9 0.008 75);
-  --card: oklch(0.995 0.004 85);
-  --accent: oklch(0.56 0.185 27);
+  color-scheme: dark;
+  /* Pure dark, cool-tinted neutrals, one electric-lime accent. OKLCH. */
+  --background: oklch(0.155 0.006 255);
+  --foreground: oklch(0.95 0.005 255);
+  --muted: oklch(0.62 0.012 255);
+  --border: oklch(0.28 0.008 255);
+  --card: oklch(0.2 0.007 255);
+  --accent: oklch(0.885 0.21 128);
+  --accent-ink: oklch(0.22 0.03 128);
 }
 
 @theme inline {
@@ -17,6 +19,7 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
@@ -32,7 +35,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Restrained ink underline that grows in on hover */
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Restrained underline that grows in on hover */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;

@@ -2,6 +2,7 @@ import CaseStudyCard from "@/components/case-study-card";
 import ContactForm from "@/components/contact-form";
 import Hero from "@/components/hero";
 import ProjectRow from "@/components/project-row";
+import Reveal from "@/components/reveal";
 import Section from "@/components/section";
 import { featuredCaseStudies, supportingCaseStudies } from "@/data/case-studies";
 import { services } from "@/data/services";
@@ -28,8 +29,10 @@ export default function HomePage() {
 
       <Section id="work" title="Selected work" index="02">
         <div className="border-b border-border">
-          {featuredCaseStudies.map((caseStudy) => (
-            <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
+          {featuredCaseStudies.map((caseStudy, i) => (
+            <Reveal key={caseStudy.slug} x={56} y={0} delay={i * 0.09}>
+              <CaseStudyCard caseStudy={caseStudy} />
+            </Reveal>
           ))}
         </div>
       </Section>
