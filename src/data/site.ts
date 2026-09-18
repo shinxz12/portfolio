@@ -1,13 +1,13 @@
 export const site = {
   name: "Ngoc Bui",
   title: "Software Engineer",
-  headline: "I build reliable systems, and make slow ones fast.",
+  headline: "I build production systems that stay clear, fast, and reliable.",
   intro:
-    "Software engineer with 5+ years shipping production systems across e-commerce, healthcare, and travel.",
+    "Software Engineer with 5+ years building APIs, workflows, integrations, and product features across B2B commerce, healthcare, fintech, travel, and cybersecurity.",
   tagline:
-    "Software engineer with 5+ years shipping production systems across e-commerce, healthcare, and travel. I build reliable APIs and full-stack products, and make slow systems fast.",
+    "Software Engineer with 5+ years building production systems across B2B commerce, healthcare, fintech, travel, cybersecurity, and consumer products. Strongest in backend platforms, APIs, asynchronous workflows, integrations, modernization, and performance.",
   description:
-    "Software Engineer with hands-on delivery across B2B commerce, healthcare, fintech onboarding, cybersecurity, and consumer apps. I help teams ship reliable APIs, asynchronous workflows, and multi-tenant SaaS products, and I modernize systems that have slowed down.",
+    "Software Engineer with hands-on delivery across B2B commerce, healthcare, fintech onboarding, cybersecurity, travel, and consumer apps. I help teams design reliable APIs, ship product workflows end to end, integrate complex third-party systems, and modernize slow or aging platforms.",
   email: "ngocbthe@gmail.com",
   phone: "+84969530042",
   location: "Ho Chi Minh City, Viet Nam",

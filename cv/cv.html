@@ -191,6 +191,7 @@
     .avoid-break {
       break-inside: avoid;
     }
+
   </style>
 </head>
 
@@ -213,12 +214,11 @@
   <section>
     <h2>Summary</h2>
     <p>
-      Software Engineer with 5+ years of experience designing, building, and optimizing
-      production-grade systems for e-commerce, healthcare, and booking products. Experienced across
-      the full stack with deep expertise in Python (Django) and TypeScript (NestJS), owning features
-      end-to-end from API design and data modeling to performance optimization and background
-      processing, with a solid grounding in system design, event-driven architecture, and
-      infrastructure fundamentals.
+      Software Engineer with 5+ years of experience building production systems across B2B commerce,
+      healthcare, fintech, travel, cybersecurity, and consumer products. Strongest in backend
+      platforms, APIs, asynchronous workflows, third-party integrations, modernization, and
+      performance optimization, with hands-on full-stack delivery from product requirements to
+      production rollout.
     </p>
   </section>
 
@@ -226,8 +226,12 @@
     <h2>Skills</h2>
     <table class="skills">
       <tr>
-        <td>Languages &amp; Frameworks</td>
-        <td>Python (Django, FastAPI), TypeScript / Node.js (NestJS), REST / gRPC / GraphQL</td>
+        <td>Languages &amp; APIs</td>
+        <td>Python, TypeScript, JavaScript, REST, gRPC, GraphQL</td>
+      </tr>
+      <tr>
+        <td>Frameworks</td>
+        <td>Django, FastAPI, NestJS, Node.js, React, Next.js</td>
       </tr>
       <tr>
         <td>Data</td>
@@ -255,18 +259,18 @@
 
       <div class="project">
         <h4>Arobid B2B Marketplace Platform</h4>
-        <p class="tech">NestJS · TypeScript · PostgreSQL · TypeORM · gRPC · Kafka · Debezium CDC · Temporal · Redis · VNPay</p>
+        <p class="tech">NestJS · TypeScript · PostgreSQL · TypeORM · gRPC · Kafka · Debezium CDC · Temporal · Redis · VNPay · FAST · MySign</p>
         <ul>
-          <li>Helped build the shared microservice foundation: service setup, configuration, database access, gRPC
-            communication, error handling, and observability used across all platform services.</li>
+          <li>Helped build the shared backend foundation for a B2B marketplace spanning catalogs, RFQs, orders,
+            payments, notifications, translation, and digital expo workflows.</li>
           <li>Designed platform-wide authentication, RBAC, audit logging, and transactional outbox patterns; implemented
             CDC pipelines with Debezium and Kafka Connect for reliable event delivery.</li>
           <li>Delivered end-to-end product listing with review/approval workflows, optimistic locking, and version history
             to protect concurrent edits.</li>
-          <li>Contributed to Temporal-based order orchestration and built VNPay payment workflows covering initiation,
-            callbacks, and transaction tracking.</li>
-          <li>Built a provider-agnostic translation service (internal AI, Google Translate, LLMs) with per-language
-            fallback chains, glossary protection, caching, and batch processing.</li>
+          <li>Designed and built end-to-end Temporal order orchestration and commerce integrations: VNPay payments,
+            FAST invoice workflows, MySign e-signature, and Trade Credit reward workflows.</li>
+          <li>Built a 3-provider translation service (internal AI, Google Translate, LLMs) with per-language fallback
+            chains, glossary protection, caching, and batch processing.</li>
         </ul>
       </div>
     </div>
@@ -281,12 +285,12 @@
         <h4>DNA Insights Platform</h4>
         <p class="tech">NestJS · TypeScript · PostgreSQL · MongoDB · gRPC · NATS JetStream · Turborepo</p>
         <ul>
-          <li>Designed and built an event-driven, microservice-based backend platform from scratch in a Turborepo monorepo
-            with clear service boundaries and ownership.</li>
+          <li>Designed and built an event-driven backend platform for AI-assisted DNA processing, establishing a
+            Turborepo monorepo with clear service boundaries and ownership.</li>
           <li>Owned backend architecture decisions for internal service communication and asynchronous processing,
             integrating with external AI/ML pipelines.</li>
-          <li>Designed reliable workflows for long-running DNA processing tasks: state tracking, retries, failure
-            recovery, and auditability across PostgreSQL and MongoDB.</li>
+          <li>Designed reliable workflows for long-running DNA processing tasks across PostgreSQL and MongoDB: state
+            tracking, retries, failure recovery, and auditability for operations teams.</li>
           <li>Built internal admin tools giving operations teams visibility into system state and processing progress.
           </li>
         </ul>
@@ -296,12 +300,12 @@
         <h4>Telehealth Core Platform</h4>
         <p class="tech">Django · Python · PostgreSQL · AWS · Celery · NMI · Stripe · React</p>
         <ul>
-          <li>Maintained and evolved a production telehealth platform supporting patient, provider, and laboratory
-            workflows.</li>
+          <li>Maintained and evolved a production telehealth platform connecting patient records, provider operations,
+            laboratory interactions, appointments, and care workflows.</li>
           <li>Optimized PostgreSQL queries, schema design, and connection handling, improving API performance and system
             stability.</li>
-          <li>Designed and maintained Celery workflows for asynchronous processing and scheduled jobs; integrated NMI and
-            Stripe payment flows for telehealth billing.</li>
+          <li>Designed and maintained Celery workflows for asynchronous processing and scheduled jobs; integrated 2
+            payment providers (NMI and Stripe) for telehealth billing.</li>
           <li>Collaborated with frontend and product teams to design stable, well-defined APIs and consistent data flow.
           </li>
         </ul>
@@ -312,7 +316,7 @@
         <p class="tech">NestJS · TypeScript · Django · PostgreSQL · REST APIs · Webhooks · RBAC</p>
         <ul>
           <li>Built multi-tenant foundations: tenant provisioning, data and configuration isolation, RBAC, and separate
-            global/tenant administration.</li>
+            global and tenant-level administration.</li>
           <li>Enabled healthcare partners to launch branded patient portals with configurable offerings and appointment
             booking, synchronized via webhook-driven workflow templates.</li>
         </ul>
@@ -329,8 +333,8 @@
         <h4>Finexis eKYC</h4>
         <p class="tech">Django · Python · MySQL · Celery · AWS</p>
         <ul>
-          <li>Built new eKYC verification types and RESTful APIs for mobile integration, with Celery background processing
-            and third-party insurance API integrations.</li>
+          <li>Built eKYC verification workflows and mobile-facing REST APIs for digital customer onboarding, with Celery
+            background processing and third-party insurance integrations.</li>
           <li>Optimized SQL queries and database structure, cutting representative page load times from 23s to 2s and from
             26s to 5s.</li>
           <li>Refactored legacy code to improve maintainability and data-access efficiency.</li>
@@ -341,10 +345,10 @@
         <h4>The Luxe Nomad</h4>
         <p class="tech">Django · Python · PostgreSQL · Celery · GCP · ReactJS · Bootstrap</p>
         <ul>
-          <li>Designed Django REST APIs and third-party integrations for booking, sales, marketing, and automated
-            reporting (Google Sheets API) in a luxury vacation rental platform.</li>
-          <li>Migrated Celery tasks and cron jobs to Google Cloud Tasks and managed scheduling; upgraded Django 2 to 4.
-          </li>
+          <li>Designed Django REST APIs and third-party integrations for booking, sales, marketing, and reporting
+            workflows in a luxury vacation rental operations platform.</li>
+          <li>Migrated Celery tasks and cron jobs to Google Cloud Tasks and managed scheduling; upgraded the production
+            application from Django 2 to Django 4.</li>
           <li>Managed deployment, performance, security, and cloud cost; consulted directly with the client on business
             requirements.</li>
         </ul>

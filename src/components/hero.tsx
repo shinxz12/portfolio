@@ -10,7 +10,7 @@ import { site } from "@/data/site";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 // Headline split into lines for a masked line-by-line reveal.
-const HEADLINE_LINES = ["I build reliable systems,", "and make slow ones fast."];
+const HEADLINE_LINES = ["I build production systems", "that stay clear, fast, and reliable."];
 
 const container: Variants = {
   hidden: {},

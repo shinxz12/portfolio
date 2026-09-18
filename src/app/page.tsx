@@ -4,6 +4,7 @@ import Hero from "@/components/hero";
 import ProjectRow from "@/components/project-row";
 import Reveal from "@/components/reveal";
 import Section from "@/components/section";
+import ValueSignals from "@/components/value-signals";
 import { featuredCaseStudies, supportingCaseStudies } from "@/data/case-studies";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
@@ -13,6 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ValueSignals />
 
       <Section id="services" title="What I do" index="01">
         <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
