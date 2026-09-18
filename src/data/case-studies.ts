@@ -9,7 +9,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Backend engineer on the core platform team",
     featured: true,
     summary:
-      "B2B marketplace backend platform spanning catalogs, RFQs, orders, payments, notifications, translation, and digital expos, built on reliable microservices and event-driven workflows.",
+      "B2B marketplace backend platform spanning catalogs, RFQs, orders, payments, invoices, e-signature, rewards, notifications, translation, and digital expos, built on reliable microservices and event-driven workflows.",
     problem:
       "Arobid connects business buyers and suppliers through supplier discovery, product catalogs, quotation workflows, order processing, and digital exhibitions. The platform needed a dependable microservice foundation so many domain teams could ship independently without sacrificing reliability or consistency.",
     contributions: [
@@ -19,6 +19,8 @@ export const caseStudies: CaseStudy[] = [
       "Built an event-driven notification service covering in-app, real-time, email, and localized communications.",
       "Delivered end-to-end product listing: suppliers create, enrich, manage, and publish offerings through structured review and approval workflows, with optimistic locking and version history preventing silent overwrites.",
       "Contributed to order orchestration with Temporal for multi-step order processing across distributed services, and built VNPay payment workflows covering initiation, callbacks, and transaction tracking.",
+      "Integrated FAST invoice workflows and MySign electronic signing into marketplace operations, connecting external business systems to order and transaction flows.",
+      "Built Trade Credit reward workflows so marketplace activity can earn, track, and apply platform credits within buyer and supplier experiences.",
       "Built a provider-agnostic translation service (internal AI, Google Translate, LLMs) with fallback chains, glossary protection, caching, and batch processing for platform-wide multilingual content.",
       "Built a centralized file service with presigned URLs so clients upload directly to object storage without loading backend servers.",
     ],
@@ -26,6 +28,7 @@ export const caseStudies: CaseStudy[] = [
       "Domain teams build new services on one consistent backend foundation instead of re-solving infrastructure per service.",
       "Marketplace events move reliably across services through outbox and CDC pipelines.",
       "Suppliers manage listings safely under concurrent edits, with traceable change history.",
+      "Orders connect to payment, invoice, e-signature, and reward-credit workflows through consistent backend integrations.",
       "Marketplace content can be translated through one provider-agnostic workflow with caching and fallback controls.",
     ],
     stack: [
@@ -40,6 +43,8 @@ export const caseStudies: CaseStudy[] = [
       "Redis",
       "Socket.IO",
       "VNPay",
+      "FAST",
+      "MySign",
       "Docker",
     ],
   },
