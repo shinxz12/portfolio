@@ -2,23 +2,23 @@ import type { Service } from "./types";
 
 export const services: Service[] = [
   {
-    title: "Backend systems & APIs",
+    title: "Production systems & APIs",
     description:
-      "Reliable REST and gRPC APIs, microservices, event-driven pipelines, and asynchronous workflows with NestJS, Django, Kafka, and Temporal.",
+      "Reliable REST, GraphQL, and gRPC APIs, domain services, RBAC, audit trails, and backend foundations that teams can build on.",
   },
   {
-    title: "Full-stack product delivery",
+    title: "Workflow automation & integrations",
     description:
-      "End-to-end features across React and Next.js frontends and NestJS or Django backends — from business requirements to production.",
+      "Asynchronous jobs, event-driven pipelines, payment flows, AI APIs, partner systems, and third-party services wired into product workflows.",
+  },
+  {
+    title: "Product delivery across the stack",
+    description:
+      "End-to-end features across React/Next.js frontends and NestJS or Django backends, from business requirements to production rollout.",
   },
   {
     title: "Modernization & performance",
     description:
-      "Framework upgrades, database and query optimization, and refactoring legacy systems so they stay fast and maintainable.",
-  },
-  {
-    title: "Third-party integrations",
-    description:
-      "Payments (Stripe, VNPay, NMI), AI APIs (OpenAI, Gemini), cloud services, and partner APIs integrated safely into existing products.",
+      "Framework upgrades, database and query optimization, cloud-managed background processing, and refactoring legacy systems so they stay maintainable.",
   },
 ];

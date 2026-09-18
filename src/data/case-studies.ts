@@ -9,7 +9,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Backend engineer on the core platform team",
     featured: true,
     summary:
-      "Microservice backend for an AI-powered B2B trade platform: product catalogs, RFQ negotiation, order orchestration, payments, and digital trade expos.",
+      "B2B marketplace backend platform spanning catalogs, RFQs, orders, payments, notifications, translation, and digital expos, built on reliable microservices and event-driven workflows.",
     problem:
       "Arobid connects business buyers and suppliers through supplier discovery, product catalogs, quotation workflows, order processing, and digital exhibitions. The platform needed a dependable microservice foundation so many domain teams could ship independently without sacrificing reliability or consistency.",
     contributions: [
@@ -23,10 +23,10 @@ export const caseStudies: CaseStudy[] = [
       "Built a centralized file service with presigned URLs so clients upload directly to object storage without loading backend servers.",
     ],
     outcomes: [
-      "Domain teams build on one consistent service foundation instead of re-solving infrastructure per service.",
-      "Marketplace events are delivered reliably end-to-end via outbox + CDC pipelines.",
+      "Domain teams build new services on one consistent backend foundation instead of re-solving infrastructure per service.",
+      "Marketplace events move reliably across services through outbox and CDC pipelines.",
       "Suppliers manage listings safely under concurrent edits, with traceable change history.",
-      "The marketplace serves multilingual business content through one consistent translation workflow.",
+      "Marketplace content can be translated through one provider-agnostic workflow with caching and fallback controls.",
     ],
     stack: [
       "NestJS",
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Backend engineer across telehealth, multi-tenant SaaS, and AI platforms",
     featured: true,
     summary:
-      "Production healthcare systems: a telehealth platform connecting patients, providers, and labs; a multi-tenant SaaS for branded patient portals; and an event-driven backend for AI-assisted DNA analysis workflows.",
+      "Healthcare and AI platforms covering telehealth operations, multi-tenant patient portals, and event-driven DNA analysis workflows with strong tenant boundaries and operational visibility.",
     problem:
       "GKIM operates a genetics-led Telehealth OS spanning patient records, appointments, diagnostics, payments, and AI analysis. The work required evolving a live healthcare platform safely while building new multi-tenant and AI-driven capabilities alongside it.",
     contributions: [
@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
       "Designed and built an event-driven microservice backend from scratch (Turborepo monorepo) for long-running DNA processing: state tracking, retries, failure handling, and operational auditability across PostgreSQL and MongoDB.",
     ],
     outcomes: [
-      "A production healthcare platform kept stable and fast while gaining new capabilities.",
+      "A production healthcare platform kept stable while gaining new patient, provider, lab, billing, and AI workflow capabilities.",
       "Third-party healthcare organizations launch branded portals on shared infrastructure with clear tenant boundaries.",
       "Operations teams gained visibility into DNA processing state, task progress, and failures.",
     ],
@@ -91,7 +91,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software engineer",
     featured: true,
     summary:
-      "Digital identity verification for a Singapore financial advisory firm — new eKYC verification flows, mobile-facing APIs, and database optimization that cut page loads from 23s to 2s.",
+      "Digital identity onboarding for a Singapore financial advisory firm, including eKYC flows, mobile APIs, background processing, insurance integrations, and page-load reductions from 23s to 2s.",
     problem:
       "Finexis needed to onboard customers digitally with automated identity and verification workflows, but the legacy system was slow and hard to extend: representative pages took 23 and 26 seconds to load.",
     contributions: [
@@ -114,7 +114,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Full-stack engineer",
     featured: true,
     summary:
-      "Booking and operations systems for Asia-Pacific's largest luxury villa rental company — Django REST APIs, cloud migration of background jobs, and a Django 2→4 upgrade.",
+      "Booking and operations systems for Asia-Pacific luxury villa rentals, modernized through Django REST APIs, cloud-managed background jobs, reporting automation, and a Django 2 to 4 upgrade.",
     problem:
       "The Luxe Nomad manages a curated portfolio of luxury villas and chalets across Japan, Indonesia, and Thailand. Its booking and operations platform ran on an aging Django 2 codebase with background processing that was costly to operate and hard to deploy.",
     contributions: [
@@ -125,7 +125,7 @@ export const caseStudies: CaseStudy[] = [
       "Contributed to the React/Bootstrap front-end redesign, working directly with the client to translate business requirements into technical solutions.",
     ],
     outcomes: [
-      "The platform moved to a supported framework version with modern, cloud-managed background processing.",
+      "The platform moved to a supported Django version with modern, cloud-managed background processing.",
       "Operations teams got automated reporting instead of manual spreadsheet preparation.",
     ],
     stack: [
