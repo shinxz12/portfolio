@@ -191,6 +191,30 @@
     .avoid-break {
       break-inside: avoid;
     }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5pt 14pt;
+    }
+
+    .impact-item {
+      break-inside: avoid;
+    }
+
+    .impact-item strong {
+      display: block;
+      font-size: 8.8pt;
+      line-height: 1.3;
+    }
+
+    .impact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.4;
+      margin-top: 1pt;
+    }
   </style>
 </head>
 
@@ -219,6 +243,28 @@
       performance optimization, with hands-on full-stack delivery from product requirements to
       production rollout.
     </p>
+  </section>
+
+  <section>
+    <h2>Selected Impact</h2>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <strong>Built platform foundations for B2B commerce</strong>
+        <span>Shared service setup, auth/RBAC, audit logging, outbox, CDC, product, order, payment, notification, and translation workflows.</span>
+      </div>
+      <div class="impact-item">
+        <strong>Reduced key page loads from 23s to 2s</strong>
+        <span>Optimized SQL queries and database structure for Finexis eKYC; another representative page improved from 26s to 5s.</span>
+      </div>
+      <div class="impact-item">
+        <strong>Delivered healthcare SaaS and AI workflows</strong>
+        <span>Telehealth operations, multi-tenant patient portals, payment flows, and event-driven DNA processing with retry and auditability.</span>
+      </div>
+      <div class="impact-item">
+        <strong>Modernized aging production systems</strong>
+        <span>Upgraded Django 2 to 4, moved background jobs to cloud-managed scheduling, and refactored legacy code for maintainability.</span>
+      </div>
+    </div>
   </section>
 
   <section>
