@@ -1,29 +1,30 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import type { ReactNode } from "react";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import ScrollProgress from "@/components/scroll-progress";
+import { site } from "@/data/site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
+const beVietnam = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-be-vietnam",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://btngoc.io.vn"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Ngoc Bui — Software Engineer",
-    template: "%s — Ngoc Bui",
+    default: `${site.name} — ${site.title}`,
+    template: `%s — ${site.name}`,
   },
-  description:
-    "Software Engineer building backend systems and full-stack products for startups and enterprises — B2B marketplaces, healthcare platforms, fintech onboarding, and more.",
+  description: site.description,
   openGraph: {
-    title: "Ngoc Bui — Software Engineer",
-    description:
-      "Software Engineer building backend systems and full-stack products for startups and enterprises.",
-    url: "https://btngoc.io.vn",
-    siteName: "Ngoc Bui",
+    title: `${site.name} — ${site.title}`,
+    description: site.description,
+    url: site.url,
+    siteName: site.name,
     type: "website",
     images: ["/profile.jpg"],
   },
@@ -32,32 +33,27 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${spaceGrotesk.variable} bg-background font-sans text-foreground`}
-      >
+      <body className={`${beVietnam.variable} bg-paper font-sans text-ink`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Ngoc Bui",
-              jobTitle: "Software Engineer",
-              email: "mailto:ngocbthe@gmail.com",
-              url: "https://btngoc.io.vn",
-              sameAs: [
-                "https://github.com/shinxz12",
-                "https://www.linkedin.com/in/ngocbthe/",
-              ],
+              name: site.name,
+              jobTitle: site.title,
+              email: `mailto:${site.email}`,
+              url: site.url,
+              knowsAbout: ["Node.js", "TypeScript", "NestJS", "Python", "Django", "FastAPI"],
+              sameAs: site.socials.map((s) => s.url),
             }),
           }}
         />
-        <ScrollProgress />
-        <main className="mx-auto min-h-screen max-w-5xl px-6 sm:px-8">
+        <div className="mx-auto min-h-screen max-w-6xl px-5 sm:px-8">
           <Navbar />
-          {children}
+          <main>{children}</main>
           <Footer />
-        </main>
+        </div>
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM ?? ""} />
     </html>

@@ -1,12 +1,11 @@
-import CaseStudyCard from "@/components/case-study-card";
 import ContactForm from "@/components/contact-form";
 import Hero from "@/components/hero";
-import ProjectRow from "@/components/project-row";
-import Reveal from "@/components/reveal";
+import ProjectEntry from "@/components/project-entry";
 import Section from "@/components/section";
-import ValueSignals from "@/components/value-signals";
-import { featuredCaseStudies, supportingCaseStudies } from "@/data/case-studies";
-import { services } from "@/data/services";
+import WorkEntry from "@/components/work-entry";
+import { caseStudies } from "@/data/case-studies";
+import { earlierProjects } from "@/data/earlier-work";
+import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { skillGroups } from "@/data/skills";
 
@@ -14,59 +13,52 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ValueSignals />
 
-      <Section id="services" title="What I do" index="01">
-        <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
-          {services.map((service, i) => (
-            <Reveal key={service.title} y={-18} delay={i * 0.1} className="border-t border-border pt-5">
-              <h3 className="font-display text-lg font-medium tracking-tight">{service.title}</h3>
-              <p className="mt-2.5 max-w-md text-sm leading-relaxed text-muted">
-                {service.description}
-              </p>
-            </Reveal>
-          ))}
-        </div>
+      <Section id="work" title="Work">
+        {caseStudies.map((caseStudy) => (
+          <WorkEntry key={caseStudy.slug} caseStudy={caseStudy} />
+        ))}
       </Section>
 
-      <Section id="work" title="Selected work" index="02">
-        <div className="border-b border-border">
-          {featuredCaseStudies.map((caseStudy, i) => (
-            <Reveal key={caseStudy.slug} x={56} y={0} delay={i * 0.09}>
-              <CaseStudyCard caseStudy={caseStudy} />
-            </Reveal>
+      <Section id="earlier" title="Earlier client work" lede="Delivered at Golden Owl Consulting, 03/2022 – 09/2024.">
+        <ul>
+          {earlierProjects.map((project) => (
+            <li key={project.name} className="border-t border-rule py-5 first:border-t-0 first:pt-0">
+              <h3 className="font-semibold tracking-tight">{project.name}</h3>
+              <p className="mt-1.5 max-w-2xl leading-relaxed text-muted">{project.summary}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </Section>
 
-      <Section id="projects" title="More projects" index="03">
-        <div>
-          {supportingCaseStudies.map((project) => (
-            <ProjectRow key={project.slug} project={project} />
-          ))}
-        </div>
+      <Section id="projects" title="Projects" lede="Open-source libraries and products built outside my day job.">
+        {projects.map((project) => (
+          <ProjectEntry key={project.slug} project={project} />
+        ))}
       </Section>
 
-      <Section id="skills" title="Tech stack" index="04">
-        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+      <Section id="stack" title="Stack">
+        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
           {skillGroups.map((group) => (
-            <div key={group.label} className="border-t border-border pt-4">
-              <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-muted">
-                {group.label}
-              </h3>
-              <p className="mt-2 leading-relaxed">{group.items.join(", ")}</p>
+            <div key={group.label}>
+              <h3 className="font-semibold">{group.label}</h3>
+              <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-muted">
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section id="contact" title="Contact" index="05">
-        <p className="max-w-xl text-lg leading-relaxed text-muted">
-          Have a project in mind, or need an extra engineer on your team? Email{" "}
-          <a href={`mailto:${site.email}`} className="link-underline text-foreground">
+      <Section id="contact" title="Contact">
+        <p className="mb-8 max-w-xl leading-relaxed">
+          Hiring, or need a backend built? Email{" "}
+          <a href={`mailto:${site.email}`} className="link font-medium">
             {site.email}
           </a>{" "}
-          or use the form below.
+          or send a message here.
         </p>
         <ContactForm />
       </Section>

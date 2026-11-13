@@ -40,27 +40,25 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-foreground";
+    "mt-1.5 w-full rounded-md border border-rule bg-white px-3 py-2.5 text-sm outline-none transition-colors focus:border-signal";
+  const labelClass = "block text-sm font-medium";
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 max-w-xl space-y-4">
+    <form onSubmit={handleSubmit} className="max-w-xl space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <input name="name" required placeholder="Your name" className={inputClass} />
-        <input
-          name="email"
-          type="email"
-          required
-          placeholder="Your email"
-          className={inputClass}
-        />
+        <label className={labelClass}>
+          Name
+          <input name="name" required autoComplete="name" className={inputClass} />
+        </label>
+        <label className={labelClass}>
+          Email
+          <input name="email" type="email" required autoComplete="email" className={inputClass} />
+        </label>
       </div>
-      <textarea
-        name="message"
-        required
-        rows={5}
-        placeholder="Tell me about your project"
-        className={inputClass}
-      />
+      <label className={labelClass}>
+        Message
+        <textarea name="message" required rows={5} className={inputClass} />
+      </label>
       <input
         name="company"
         tabIndex={-1}
@@ -71,22 +69,22 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-50 disabled:hover:translate-y-0"
+        className="rounded-md bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-signal disabled:opacity-50"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>
-      {status === "sent" && (
-        <p className="text-sm text-foreground">Thanks, I&apos;ll get back to you soon.</p>
-      )}
-      {status === "error" && (
-        <p className="text-sm text-red-500">
-          {errorMessage} You can also email me directly at{" "}
-          <a href={`mailto:${site.email}`} className="underline">
-            {site.email}
-          </a>
-          .
-        </p>
-      )}
+      <p aria-live="polite" className="text-sm">
+        {status === "sent" && "Message sent. I'll reply to your email."}
+        {status === "error" && (
+          <span className="text-red-700">
+            {errorMessage} You can also email{" "}
+            <a href={`mailto:${site.email}`} className="link">
+              {site.email}
+            </a>
+            .
+          </span>
+        )}
+      </p>
     </form>
   );
 }

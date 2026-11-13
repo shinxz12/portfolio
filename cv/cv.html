@@ -119,6 +119,12 @@
 
     .company > .row {
       margin-bottom: 2pt;
+      break-after: avoid;
+    }
+
+    .scope {
+      margin: 0 0 1pt 11pt;
+      color: var(--muted);
     }
 
     .company > .row h3 {
@@ -200,11 +206,11 @@
   <header>
     <div>
       <h1>Bùi Thế Ngọc</h1>
-      <div class="role">Software Engineer</div>
+      <div class="role">Software Engineer · Node.js, Python</div>
     </div>
     <div class="contact">
       <b><a href="mailto:ngocbthe@gmail.com">ngocbthe@gmail.com</a></b><br />
-      0969 530 042 · District 10, Ho Chi Minh City<br />
+      0969 530 042 · Ho Chi Minh City<br />
       <a href="https://www.linkedin.com/in/ngocbthe/">linkedin.com/in/ngocbthe</a> ·
       <a href="https://github.com/shinxz12">github.com/shinxz12</a> ·
       <a href="https://btngoc.io.vn">btngoc.io.vn</a>
@@ -214,10 +220,10 @@
   <section>
     <h2>Summary</h2>
     <p>
-      Software Engineer with 5+ years of experience delivering product features and production
-      systems across B2B commerce, healthcare, fintech, travel, cybersecurity, and consumer products.
-      Strongest in turning business workflows into reliable APIs, integrations, background jobs,
-      and full-stack features, with hands-on delivery from product requirements to production rollout.
+      Software Engineer with 5+ years building and running production backends in Node.js and Python, from
+      infrastructure and data pipelines to product features. Core platform engineer at Arobid, where I built much of the
+      shared foundation and own the order, payment, and document services. As a freelancer I design, build, and operate
+      complete systems end to end.
     </p>
   </section>
 
@@ -225,24 +231,24 @@
     <h2>Skills</h2>
     <table class="skills">
       <tr>
-        <td>Languages &amp; APIs</td>
-        <td>Python, TypeScript, JavaScript, REST, gRPC, GraphQL</td>
+        <td>Node.js</td>
+        <td>TypeScript, NestJS, Fastify, Next.js, TypeORM, Drizzle, Prisma, Temporal, Jest, Vitest, Playwright</td>
       </tr>
       <tr>
-        <td>Frameworks</td>
-        <td>Django, FastAPI, NestJS, Node.js, React, Next.js, Tailwind CSS</td>
+        <td>Python</td>
+        <td>Django, Django REST Framework, FastAPI, Celery, pyHanko, psycopg, pytest, AWS Lambda</td>
       </tr>
       <tr>
-        <td>Data &amp; Performance</td>
-        <td>PostgreSQL, MySQL, MongoDB, Redis, schema design, query optimization</td>
+        <td>Data &amp; Messaging</td>
+        <td>PostgreSQL, MySQL, MongoDB, Redis, pgvector, Kafka, Debezium CDC, NATS JetStream</td>
       </tr>
       <tr>
-        <td>Async &amp; Integrations</td>
-        <td>Kafka, Debezium CDC, NATS JetStream, Temporal, Celery, webhooks</td>
+        <td>APIs &amp; Integrations</td>
+        <td>REST, gRPC, GraphQL, webhooks, VNPay, SePay, FAST e-invoice, PAdES e-signature</td>
       </tr>
       <tr>
-        <td>Cloud &amp; Delivery</td>
-        <td>AWS, Google Cloud, Docker, Nginx, CI/CD, Agile/Scrum</td>
+        <td>Infrastructure</td>
+        <td>Docker, OpenTelemetry, Keycloak, Zitadel, GitLab CI, Coolify, Nginx, AWS, GCP, Cloudflare</td>
       </tr>
     </table>
   </section>
@@ -252,71 +258,90 @@
 
     <div class="company">
       <div class="row">
-        <h3>Arobid Tech JSC <span class="role-name">· Backend Engineer</span></h3>
+        <h3>Arobid Tech JSC <span class="role-name">· Backend Engineer, Core Platform Team</span></h3>
         <span class="dates">02/2026 – Present</span>
+      </div>
+      <p class="scope">Joined in the platform's first week.</p>
+
+      <div class="project">
+        <h4>Core Platform</h4>
+        <p class="tech">NestJS · PostgreSQL · TypeORM · gRPC · Kafka · Debezium CDC · OpenTelemetry</p>
+        <ul>
+          <li>Wrote the service template every new service starts from; top contributor to the shared NestJS library
+            (auth guards, error handling, gRPC and Kafka clients, tracing, base repositories).</li>
+          <li>Built platform-wide RBAC and audit logging, a signed outbound-webhook engine on Temporal (HMAC-SHA256,
+            24-hour backoff, admin resend), and request-ID propagation across HTTP, gRPC, Kafka, and Temporal in 15
+            services.</li>
+          <li>Kept production healthy: Debezium heartbeats reclaimed ~38 GB of WAL across 10 production databases; trigram
+            indexes cut admin company search over ~1M rows from 2.5 s to under 0.7 s.</li>
+        </ul>
       </div>
 
       <div class="project">
-        <h4>Arobid B2B Marketplace Platform</h4>
-        <p class="tech">NestJS · TypeScript · PostgreSQL · TypeORM · gRPC · Kafka · Debezium CDC · Temporal · Redis · VNPay · FAST · MySign</p>
+        <h4>Commerce: Orders, Payments, Invoices, Documents</h4>
+        <p class="tech">Temporal · Puppeteer · React · Next.js</p>
         <ul>
-          <li>Delivered core marketplace features for supplier catalogs, RFQs, orders, payments, invoices, e-signature,
-            rewards, notifications, translation, and digital expo operations.</li>
-          <li>Shipped supplier product listing end to end: creation, media/files, review and approval, optimistic locking,
-            and version history to protect concurrent edits.</li>
-          <li>Delivered order and transaction workflows end to end, including Temporal orchestration, VNPay payments,
-            FAST invoice workflows, MySign e-signature, and Trade Credit rewards.</li>
-          <li>Built marketplace platform capabilities used across domains: authentication, RBAC, audit logging,
-            transactional outbox, Debezium/Kafka CDC, and shared service foundations.</li>
-          <li>Shipped multilingual content workflows using internal AI, Google Translate, and LLM providers with fallback
-            routing, glossary protection, and caching.</li>
+          <li>Own the order service since day one: Temporal purchase workflows delivered end to end across backend and both
+            frontends; an order-type registry turned a new order type from a ~34-file change into one definition.</li>
+          <li>Created the payment service: VNPay, bank transfer with VietQR and SePay auto-confirmation, and method
+            switching mid-checkout with exactly one transaction per order.</li>
+          <li>Created the trade-credit rewards service (earn-and-burn ledger, versioned policies) and the document
+            service (PDF confirmations and contracts signed through MySign and FPT eContract); integrated FAST
+            e-invoicing end to end.</li>
         </ul>
       </div>
     </div>
 
     <div class="company">
       <div class="row">
-        <h3>Gkim Digital Ltd <span class="role-name">· Backend Engineer</span></h3>
+        <h3>Freelance <span class="role-name">· Software Engineer</span></h3>
+        <span class="dates">01/2026 – Present</span>
+      </div>
+
+      <div class="project">
+        <h4>Smart Tech SG Operations Platform <span class="role-name">· smarttechsg.vn</span></h4>
+        <p class="tech">Next.js · Fastify · Drizzle · FastAPI · pyHanko · PostgreSQL · Gotenberg</p>
+        <ul>
+          <li>Sole engineer from client spec to production: a Next.js and PostgreSQL ops app covering the business from
+            first enquiry to warranty and payroll, with role-based access, row scoping, and audit logs.</li>
+          <li>Built web-signer in Python: multi-tenant PAdES signing with Vietnamese USB tokens through a desktop agent over
+            WebSocket, with row-level security and LISTEN/NOTIFY for multiple instances.</li>
+          <li>Built doc-svc in Node.js: DOCX templates to PDF via Gotenberg, versioning, and a signing lifecycle verified by
+            document hash and signer tax code, with outbox webhooks and idempotency keys; one API contract covers both
+            services, enforced by a cross-language conformance suite.</li>
+          <li>Added an AI assistant with 203 permission-scoped tools; every write needs the user's approval.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="company">
+      <div class="row">
+        <h3>GKIM Digital Ltd <span class="role-name">· Backend Engineer</span></h3>
         <span class="dates">09/2024 – 02/2026</span>
       </div>
 
       <div class="project">
-        <h4>DNA Insights Platform</h4>
-        <p class="tech">NestJS · TypeScript · PostgreSQL · MongoDB · gRPC · NATS JetStream · Turborepo</p>
+        <h4>DNAi Genetic Report Platform</h4>
+        <p class="tech">NestJS · NATS JetStream · gRPC · MongoDB · PostgreSQL · Redis · BullMQ</p>
         <ul>
-          <li>Delivered AI-assisted DNA processing workflows from intake through long-running task execution, state
-            tracking, retries, failure recovery, and operations visibility.</li>
-          <li>Built the event-driven backend behind the workflow, including service boundaries, data models,
-            gRPC/NATS communication, and external AI/ML pipeline integration.</li>
-          <li>Shipped internal admin tools for operations teams to inspect processing state, task progress, and failures
-            across PostgreSQL and MongoDB.
-          </li>
+          <li>Built most of the backend for DNAi, which turns a patient's genetic lab report into a counseling report they
+            can read: six of its nine NestJS microservices and all three API gateways.</li>
+          <li>Designed the NATS JetStream event flow, including a fix for duplicate processing across clusters, and the
+            report pipeline: BullMQ and Playwright render PDFs to S3, with Teams alerts when an AI task fails.</li>
+          <li>Built the partner API: OAuth client credentials, rate limits, workspace API keys with audit logs, and webhook
+            subscriptions with delivery logs and retries; wrote most of the unit and end-to-end tests.</li>
         </ul>
       </div>
 
       <div class="project">
-        <h4>Telehealth Core Platform</h4>
-        <p class="tech">Django · Python · PostgreSQL · AWS · Celery · NMI · Stripe · React</p>
+        <h4>Telehealth Platform (TMS)</h4>
+        <p class="tech">Django · PostgreSQL · Redis · Django Q · Sentry · Firebase · Stripe</p>
         <ul>
-          <li>Delivered backend features for patient records, provider operations, laboratory interactions, appointments,
-            and care workflows on a production telehealth platform.</li>
-          <li>Shipped telehealth billing workflows with 2 payment providers (NMI and Stripe), plus Celery jobs for
-            asynchronous processing and scheduled operations.</li>
-          <li>Improved API performance and stability through PostgreSQL query optimization, schema tuning, and connection
-            handling improvements.</li>
-          <li>Collaborated with frontend and product teams to design stable, well-defined APIs and consistent data flow.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <h4>E4G Multi-Tenant Healthcare Platform</h4>
-        <p class="tech">NestJS · TypeScript · Django · PostgreSQL · REST APIs · Webhooks · RBAC</p>
-        <ul>
-          <li>Delivered multi-tenant SaaS features for healthcare partners: tenant provisioning, branding, configurable
-            offerings, appointment booking, and patient-facing portals.</li>
-          <li>Built global and tenant-level administration with data/configuration isolation, RBAC, and webhook-driven
-            workflow template synchronization.</li>
+          <li>Built the AI insights integration that sends genetic test results to DNAi and puts finished reports on the
+            patient's case in real time.</li>
+          <li>Set up the unit-test foundation (multi-database test settings, coverage, factories) and code-quality tooling
+            (linters, Black, Sentry); moved jobs to scheduled queues with retries and added priority-based patient
+            queue scheduling.</li>
         </ul>
       </div>
     </div>
@@ -328,73 +353,42 @@
       </div>
 
       <div class="project">
-        <h4>Finexis eKYC</h4>
+        <h4>Finexis eKYC <span class="role-name">· Singapore</span></h4>
         <p class="tech">Django · Python · MySQL · Celery · AWS</p>
         <ul>
-          <li>Delivered digital onboarding features for eKYC verification, mobile REST APIs, background processing, and
-            third-party insurance integrations.</li>
-          <li>Optimized SQL queries and database structure, cutting representative page load times from 23s to 2s and from
-            26s to 5s.</li>
-          <li>Refactored legacy backend modules and data access patterns to improve maintainability and delivery speed.</li>
+          <li>Delivered eKYC verification types, mobile REST APIs, background processing, and insurance integrations;
+            cut representative page loads from 23 s to 2 s and 26 s to 5 s through SQL and schema work.</li>
         </ul>
       </div>
 
       <div class="project">
         <h4>The Luxe Nomad</h4>
-        <p class="tech">Django · Python · PostgreSQL · Celery · GCP · ReactJS · Bootstrap</p>
+        <p class="tech">Django · Python · PostgreSQL · Celery · Google Cloud</p>
         <ul>
-          <li>Delivered booking, sales, marketing, and reporting workflows through Django REST APIs and third-party
-            integrations in a luxury vacation rental operations platform.</li>
-          <li>Migrated Celery tasks and cron jobs to Google Cloud Tasks and managed scheduling; upgraded the production
-            application from Django 2 to Django 4.</li>
-          <li>Managed deployment, performance, security, and cloud cost; worked directly with the client on business
-            requirements.</li>
+          <li>Built booking, sales, and reporting APIs; upgraded production from Django 2 to 4 and moved Celery jobs to
+            Google Cloud Tasks and managed cron.</li>
         </ul>
       </div>
 
       <div class="project">
-        <h4>Watchtowr</h4>
-        <p class="tech">NextJS · NestJS · ChakraUI · Apollo · GraphQL · Kafka</p>
+        <h4>Other client projects</h4>
         <ul>
-          <li>Delivered asset onboarding and management features with GraphQL APIs and frontend workflows for an
-            exposure-management platform.</li>
-          <li>Implemented automated PDF report generation and maintained production services, improving overall
-            reliability.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <h4>Hoplite Technology</h4>
-        <p class="tech">TypeScript · ReactJS · NextJS · Python · AWS Lambda · FastAPI · MongoDB · Nginx</p>
-        <ul>
-          <li>Delivered AI-powered chat experiences with NextJS and the OpenAI API; designed serverless REST APIs with AWS Lambda
-            and API Gateway.</li>
-          <li>Implemented streaming responses to work around API Gateway timeouts; optimized page load and API
-            responsiveness; set up Nginx reverse proxy.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <h4>TurisVPN</h4>
-        <p class="tech">Django · Python · Celery · CKEditor</p>
-        <ul>
-          <li>Delivered a scheduled email campaign feature for marketing teams using CKEditor 5 and Celery.</li>
-          <li>Set up performance debugging tooling and fixed N+1 query issues, speeding up data-heavy Django Admin pages.
-          </li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <h4>Clinger</h4>
-        <p class="tech">NestJS · TypeScript · PostgreSQL</p>
-        <ul>
-          <li>Delivered core mobile dating features (profiles, matching, messaging) and integrated
-            automated nudity detection for content safety.</li>
-          <li>Redesigned database schemas and optimized queries to improve data integrity and responsiveness; refactored
-            legacy modules for maintainability.</li>
+          <li>Hoplite (FastAPI, AWS Lambda): AI chat APIs that stream responses past API Gateway timeouts. watchTowr
+            (NestJS, GraphQL): asset onboarding APIs and PDF reports for an exposure-management platform.</li>
         </ul>
       </div>
     </div>
+  </section>
+
+  <section class="avoid-break">
+    <h2>Open Source &amp; Projects</h2>
+    <ul>
+      <li><b>entity-history</b> · <a href="https://github.com/shinxz12/entity-history">github.com/shinxz12/entity-history</a>
+        (TypeScript, 5 npm packages): audit history for TypeORM and MikroORM with NestJS modules; shadow tables,
+        time-travel queries, diff and revert; tested on Postgres with Testcontainers.</li>
+      <li><b>Techino</b> (NestJS, PostgreSQL + pgvector, React, Python): field-crew HR and attendance platform built solo
+        in six weeks: offline check-in, hybrid Vietnamese document search, and a Python face-recognition prototype.</li>
+    </ul>
   </section>
 
   <section class="avoid-break">

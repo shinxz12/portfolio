@@ -1,18 +1,17 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/data/case-studies";
-
-const BASE_URL = "https://btngoc.io.vn";
+import { site } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: BASE_URL,
+      url: site.url,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     ...caseStudies.map((cs) => ({
-      url: `${BASE_URL}/work/${cs.slug}`,
+      url: `${site.url}/work/${cs.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,

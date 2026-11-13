@@ -1,16 +1,16 @@
 export const site = {
   name: "Ngoc Bui",
+  fullName: "Bùi Thế Ngọc",
   title: "Software Engineer",
-  headline: "I build production systems that stay clear, fast, and reliable.",
+  url: "https://btngoc.io.vn",
+  headline: "I build the systems a business runs on, and keep them running.",
   intro:
-    "Software Engineer with 5+ years building APIs, workflows, integrations, and product features across B2B commerce, healthcare, fintech, travel, and cybersecurity.",
-  tagline:
-    "Software Engineer with 5+ years building production systems across B2B commerce, healthcare, fintech, travel, cybersecurity, and consumer products. Strongest in backend platforms, APIs, asynchronous workflows, integrations, modernization, and performance.",
+    "5+ years building production backends in Node.js and Python for B2B commerce, healthcare, and fintech: shared platforms, APIs, event-driven workflows, and the infrastructure under them.",
   description:
-    "Software Engineer with hands-on delivery across B2B commerce, healthcare, fintech onboarding, cybersecurity, travel, and consumer apps. I help teams design reliable APIs, ship product workflows end to end, integrate complex third-party systems, and modernize slow or aging platforms.",
+    "Software Engineer with 5+ years building production backends in Node.js (NestJS, Fastify, Next.js) and Python (Django, FastAPI): order and payment workflows, e-invoicing, document generation, and digital signing.",
   email: "ngocbthe@gmail.com",
   phone: "+84969530042",
-  location: "Ho Chi Minh City, Viet Nam",
+  location: "Ho Chi Minh City, Vietnam",
   cvUrl: "/BUI THE NGOC - SOFTWARE ENGINEER.pdf",
   socials: [
     { label: "GitHub", url: "https://github.com/shinxz12" },

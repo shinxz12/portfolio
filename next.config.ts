@@ -24,6 +24,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // Earlier client work no longer has case study pages; it is listed on the home page.
+        source: "/work/:slug(finexis-ekyc|luxe-nomad|hoplite|watchtowr|turisvpn|clinger)",
+        destination: "/#earlier",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

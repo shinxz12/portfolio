@@ -1,27 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  /* Pure dark, cool-tinted neutrals, one electric-lime accent. OKLCH. */
-  --background: oklch(0.155 0.006 255);
-  --foreground: oklch(0.95 0.005 255);
-  --muted: oklch(0.62 0.012 255);
-  --border: oklch(0.28 0.008 255);
-  --card: oklch(0.2 0.007 255);
-  --accent: oklch(0.885 0.21 128);
-  --accent-ink: oklch(0.22 0.03 128);
+  color-scheme: light;
+  /* Technical-drawing palette: cool paper, navy ink, one cobalt signal colour
+     reserved for the path a request takes through the system. */
+  --paper: #f8f9fb;
+  --ink: #172033;
+  --muted: #586174;
+  --rule: #dce1e8;
+  --signal: #2447d6;
+  --signal-soft: #e8edfc;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-card: var(--card);
-  --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --color-rule: var(--rule);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -29,34 +27,80 @@ html {
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--paper);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01";
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--signal-soft);
+  color: var(--ink);
 }
 
-/* Restrained underline that grows in on hover */
-.link-underline {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: 0% 1px;
-  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
 }
-.link-underline:hover {
-  background-size: 100% 1px;
+
+.link {
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 0.2s;
+}
+.link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Request flow (hero) ----------
+   One orchestrated moment: on load, the request travels stage by stage.
+   Each stage's connector draws, then its node lights. --i is the stage index. */
+.flow-stage {
+  --step: 0.42s;
+}
+.flow-connector {
+  transform-origin: left center;
+  animation: flow-draw 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--i) * var(--step));
+}
+.flow-node {
+  animation: flow-light 0.35s ease-out both;
+  animation-delay: calc(var(--i) * var(--step) + 0.3s);
+}
+
+@keyframes flow-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes flow-light {
+  from {
+    border-color: var(--rule);
+    background-color: var(--paper);
+  }
+}
+
+@media (max-width: 1023px) {
+  .flow-connector {
+    transform-origin: center top;
+    animation-name: flow-draw-y;
+  }
+  @keyframes flow-draw-y {
+    from {
+      transform: scaleY(0);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .link-underline {
-    transition: none;
+  .flow-connector,
+  .flow-node {
+    animation: none;
   }
 }
