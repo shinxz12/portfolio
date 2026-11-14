@@ -1,5 +1,5 @@
 import { GoogleTagManager } from "@next/third-parties/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import type { ReactNode } from "react";
 import Footer from "@/components/footer";
@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     type: "website",
     images: ["/profile.jpg"],
   },
+};
+
+/** Browser UI colour for each colour scheme; matches --paper in globals.css. */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f9fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1a33" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

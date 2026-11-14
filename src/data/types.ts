@@ -9,6 +9,15 @@ export type FlowStage = {
   detail: string;
 };
 
+/** A request's path through one system, drawn in the hero and on the case study page. */
+export type RequestPath = {
+  /** What the request does, e.g. "Contract signing". */
+  name: string;
+  /** Which part of the path is my work. */
+  caption: string;
+  stages: FlowStage[];
+};
+
 /** Work listed under "Work", each with its own page at /work/[slug]. */
 export type CaseStudy = {
   slug: string;
@@ -19,8 +28,7 @@ export type CaseStudy = {
   tracks: Track[];
   summary: string;
   problem: string;
-  /** Optional request path rendered as a flow diagram on the case study page. */
-  flow?: FlowStage[];
+  flow?: RequestPath;
   contributions: string[];
   outcomes: string[];
   stack: string[];

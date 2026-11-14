@@ -5,13 +5,16 @@ One-page site with per-project case studies, fully static content, and a Telegra
 
 ## Stack
 
-Next.js 15 (App Router) · React 19 · TypeScript · Tailwind 4. No client-side animation library: the hero's
-request-flow animation is CSS only and respects `prefers-reduced-motion`.
+Next.js 15 (App Router) · React 19 · TypeScript · Tailwind 4. No animation library: the hero's request
+animation is a few timers plus CSS transitions, and respects `prefers-reduced-motion`.
+Colours are CSS variables in `src/app/globals.css`: a light drawing palette, and a dark blueprint palette that
+follows the visitor's system setting (`prefers-color-scheme`). Use the tokens, not fixed colours.
 
 ## Structure
 
-- `/` — hero with a request-flow diagram, work, earlier client work, projects, stack, contact
-- `/work/[slug]` — case study pages, statically generated; an optional `flow` renders a request path
+- `/` — hero with an interactive drawing sheet (one tab per system: a request travels through it, each step
+  explains itself on hover, focus, or tap), work, earlier client work, projects, stack, contact
+- `/work/[slug]` — case study pages, statically generated; an optional `flow` renders its request path
 - `/api/contact` — contact form endpoint, delivers to Telegram
 - `src/data/` — ALL site content, typed TypeScript (no CMS, no database)
 
@@ -19,8 +22,9 @@ request-flow animation is CSS only and respects `prefers-reduced-motion`.
 
 - Case studies: `src/data/case-studies.ts` — add an object; it is listed under Work and its page and sitemap entry
   are generated. Earlier client work (one line each, no page): `src/data/earlier-work.ts`.
-- Hero diagram: the `flow` of the `smart-tech` case study, shown without its detail lines. Side projects:
-  `src/data/projects.ts`. Stack: `src/data/skills.ts`. Profile, headline, and site URL: `src/data/site.ts`.
+- Hero sheet: the `flow` (name, caption, stages) of each case study in `heroSlugs` in
+  `src/components/hero.tsx`, in tab order. Side projects: `src/data/projects.ts`. Stack: `src/data/skills.ts`.
+  Profile, headline, and site URL: `src/data/site.ts`.
 - CV: edit `cv/cv.html`, then export the PDF:
 
   ```bash

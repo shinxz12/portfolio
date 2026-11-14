@@ -12,33 +12,42 @@ export const caseStudies: CaseStudy[] = [
       "Joined in the platform's first week and helped build its foundation: the service template and shared NestJS library every backend service runs on. I own the order, payment, audit, trade-credit, and document services.",
     problem:
       "Arobid connects business buyers and suppliers through catalogs, quotations, orders, and online trade expos. Its backend was started from scratch in February 2026 as NestJS microservices. Every paid order has to reach the payment gateway, Vietnam's FAST e-invoicing, contract signing, rewards, and partner systems, and a failure in any of them must not lose the order.",
-    flow: [
-      {
-        service: "Order service",
-        label: "Place the order",
-        detail: "One Temporal purchase workflow for every order type, with eligibility checks under a row lock.",
-      },
-      {
-        service: "Payment service",
-        label: "Take the payment",
-        detail: "VNPay or bank transfer through VietQR; SePay confirms transfers automatically.",
-      },
-      {
-        service: "E-invoicing",
-        label: "Issue the e-invoice",
-        detail: "Customer and product codes mapped from the buyer's invoice form and pushed to FAST.",
-      },
-      {
-        service: "Document service",
-        label: "Send the documents",
-        detail: "Order confirmation and contract rendered to PDF, signed through FPT eContract, emailed.",
-      },
-      {
-        service: "Partner webhooks",
-        label: "Tell the partners",
-        detail: "HMAC-signed webhooks from the outbox, retried with backoff for 24 hours.",
-      },
-    ],
+    flow: {
+      name: "Paid order",
+      caption: "I built or own every step on this path.",
+      stages: [
+        {
+          service: "Order service",
+          track: "Node.js",
+          label: "Place the order",
+          detail: "One Temporal purchase workflow for every order type, with eligibility checks under a row lock.",
+        },
+        {
+          service: "Payment service",
+          track: "Node.js",
+          label: "Take the payment",
+          detail: "VNPay or bank transfer through VietQR; SePay confirms transfers automatically.",
+        },
+        {
+          service: "E-invoicing",
+          track: "Node.js",
+          label: "Issue the e-invoice",
+          detail: "Customer and product codes mapped from the buyer's invoice form and pushed to FAST.",
+        },
+        {
+          service: "Document service",
+          track: "Node.js",
+          label: "Send the documents",
+          detail: "Order confirmation and contract rendered to PDF, signed through FPT eContract, emailed.",
+        },
+        {
+          service: "Partner webhooks",
+          track: "Node.js",
+          label: "Tell the partners",
+          detail: "HMAC-signed webhooks from the outbox, retried with backoff for 24 hours.",
+        },
+      ],
+    },
     contributions: [
       "Wrote the service template every new service starts from, and became the top contributor to the shared NestJS library they all depend on: auth guards, request context, error handling, gRPC and Kafka clients, tracing, and TypeORM base repositories with entity history.",
       "Designed pieces the whole platform uses: role-based access and audit logging, a signed outbound-webhook engine on Temporal (HMAC-SHA256, backoff over 24 hours, admin resend), and one request ID carried across HTTP, gRPC, Kafka, the outbox, and Temporal.",
@@ -79,38 +88,42 @@ export const caseStudies: CaseStudy[] = [
       "One system for a network and camera installation company, from first enquiry to warranty and payroll, plus two reusable services: one renders and tracks documents, the other signs them with Vietnamese USB tokens.",
     problem:
       "Smart Tech SG installs office networks, Wi-Fi, and security cameras in Ho Chi Minh City. Leads, quotes, contracts, stock, field work, and paperwork lived in spreadsheets and chat. The company handed over a requirements spec; I turned it into a backlog of releases, then built and run the whole platform in production.",
-    flow: [
-      {
-        service: "Operations app",
-        track: "Node.js",
-        label: "Issue the contract",
-        detail: "The ops app turns an approved quote into a contract and asks the document service for a PDF.",
-      },
-      {
-        service: "Document service",
-        track: "Node.js",
-        label: "Render the PDF",
-        detail: "DOCX template validated against its JSON Schema, rendered by Gotenberg, signature boxes located in the PDF.",
-      },
-      {
-        service: "Signing service",
-        track: "Python",
-        label: "Prepare the signature",
-        detail: "pyHanko builds PAdES signed attributes with timestamp and revocation data. The PDF stays on the server.",
-      },
-      {
-        service: "PC signing app",
-        track: "Python",
-        label: "Sign with a USB token",
-        detail: "The desktop app signs only a fingerprint of the document through PKCS#11 and sends the signature back over WebSocket.",
-      },
-      {
-        service: "Document service",
-        track: "Node.js",
-        label: "Verify and notify",
-        detail: "Original hash and signer tax code are checked; a Standard Webhook updates the contract in the app.",
-      },
-    ],
+    flow: {
+      name: "Contract signing",
+      caption: "I designed, built, and operate every service on this path.",
+      stages: [
+        {
+          service: "Operations app",
+          track: "Node.js",
+          label: "Issue the contract",
+          detail: "The ops app turns an approved quote into a contract and asks the document service for a PDF.",
+        },
+        {
+          service: "Document service",
+          track: "Node.js",
+          label: "Render the PDF",
+          detail: "DOCX template validated against its JSON Schema, rendered by Gotenberg, signature boxes located in the PDF.",
+        },
+        {
+          service: "Signing service",
+          track: "Python",
+          label: "Prepare the signature",
+          detail: "pyHanko builds PAdES signed attributes with timestamp and revocation data. The PDF stays on the server.",
+        },
+        {
+          service: "PC signing app",
+          track: "Python",
+          label: "Sign with a USB token",
+          detail: "The desktop app signs only a fingerprint of the document through PKCS#11 and sends the signature back over WebSocket.",
+        },
+        {
+          service: "Document service",
+          track: "Node.js",
+          label: "Verify and notify",
+          detail: "Original hash and signer tax code are checked; a Standard Webhook updates the contract in the app.",
+        },
+      ],
+    },
     contributions: [
       "Turned the client's spec into a release plan and shipped it as a Next.js 16 and PostgreSQL ops app: leads, versioned quotes, contracts with installments, an append-only inventory ledger, field scheduling, handover and warranty, finance, HR, and payroll, with server-side role checks, project-level row scoping, audit logs, and Zitadel OIDC sign-in.",
       "Built an AI assistant with 203 tools across 10 business areas. It only sees tools the user is allowed to use, and every write runs the existing server action after the user approves an HMAC-signed confirmation.",
@@ -155,38 +168,42 @@ export const caseStudies: CaseStudy[] = [
       "Built most of the backend of DNAi, which turns a patient's genetic test into a counseling report they can read, and worked on the Django telehealth platform that orders the tests and delivers the results.",
     problem:
       "GKIM runs a genetics-led telehealth service: patients take DNA tests, labs send back technical reports, and counselors explain what they mean. DNAi automates that explanation: a partner app sends the lab report and gets back a structured counseling report.",
-    flow: [
-      {
-        service: "Telehealth platform",
-        track: "Python",
-        label: "Send the test result",
-        detail: "When a patient's genetic test comes back, the Django platform sends the lab report and patient details to DNAi.",
-      },
-      {
-        service: "AI insight service",
-        track: "Node.js",
-        label: "Queue the analysis",
-        detail: "The partner API checks the app's OAuth credentials, records the task, and hands it to the AI pipeline over NATS JetStream.",
-      },
-      {
-        service: "AI models",
-        track: "Python",
-        label: "Read the genes",
-        detail: "The AI team's models read the lab report and draft findings, risk areas, and medication guidance.",
-      },
-      {
-        service: "PDF service",
-        track: "Node.js",
-        label: "Write the report",
-        detail: "Renders a multi-page counseling report and stores it in S3 behind short-lived links.",
-      },
-      {
-        service: "Webhooks",
-        track: "Node.js",
-        label: "Deliver it",
-        detail: "Webhooks tell the partner the report is ready; the telehealth platform attaches it to the patient's case and shows it live.",
-      },
-    ],
+    flow: {
+      name: "Genetic report",
+      caption: "Every step except the AI models is my work.",
+      stages: [
+        {
+          service: "Telehealth platform",
+          track: "Python",
+          label: "Send the test result",
+          detail: "When a patient's genetic test comes back, the Django platform sends the lab report and patient details to DNAi.",
+        },
+        {
+          service: "AI insight service",
+          track: "Node.js",
+          label: "Queue the analysis",
+          detail: "The partner API checks the app's OAuth credentials, records the task, and hands it to the AI pipeline over NATS JetStream.",
+        },
+        {
+          service: "AI models",
+          track: "Python",
+          label: "Read the genes",
+          detail: "The AI team's models read the lab report and draft findings, risk areas, and medication guidance.",
+        },
+        {
+          service: "PDF service",
+          track: "Node.js",
+          label: "Write the report",
+          detail: "Renders a multi-page counseling report and stores it in S3 behind short-lived links.",
+        },
+        {
+          service: "Webhooks",
+          track: "Node.js",
+          label: "Deliver it",
+          detail: "Webhooks tell the partner the report is ready; the telehealth platform attaches it to the patient's case and shows it live.",
+        },
+      ],
+    },
     contributions: [
       "Built most of DNAi's backend: six of its nine NestJS microservices (AI insight, workspace, notification, email, webhook, and interaction services) and all three API gateways, for the console, for admins, and for partner apps.",
       "Designed the event flow on NATS JetStream: stream migrations, manual acknowledgement, replicas, request context carried on every message, and a fix for duplicate processing when several clusters consume the same stream.",
